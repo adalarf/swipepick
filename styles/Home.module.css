@@ -1,0 +1,104 @@
+.name{
+  position: absolute;
+  font:Gugi;
+  font-size: 70px;
+  left:400px;
+  top:35px;
+  border: solid;
+  padding: 10px 275px 585px 275px;
+  border-radius: 15px;
+  border-color: #22B2EA;
+}
+
+.types{
+  position: absolute;
+  left:490px;
+  top:280px;
+  border: solid;
+  padding:10px;
+  padding-bottom: 30px;
+}
+
+#test{
+  position: relative;
+  text-align: center;
+  top: 25px;
+  font-size: 35px;
+}
+
+.interv{
+  position: absolute;
+  left:870px;
+  top:280px;
+  border: solid;
+  padding:10px;
+  padding-bottom: 30px;
+}
+
+.types:hover{
+  background-color: gray;
+  border-width: 6px;
+}
+
+.interv:hover{
+  background-color: gray;
+  border-width: 6px;
+}
+
+.finterv{
+  position: absolute;
+  left:870px;
+  top:280px;
+  border: solid;
+  padding:10px;
+  padding-bottom: 30px;
+  background-color: gray;
+  border-width: 6px;
+}
+
+.ftypes{
+  position: absolute;
+  left:490px;
+  top:280px;
+  border: solid;
+  padding:10px;
+  padding-bottom: 30px;
+  background-color: gray;
+  border-width: 6px;
+}
+
+.next{
+  position: absolute;
+  right:370px;
+  top: 615px;
+}
+
+#nexttext{
+  position: relative;
+  top: 15px;
+  right: 50px;
+}
+
+.ques{
+  position: absolute;
+  left:600px;
+  top:280px;
+}
+#textque{
+  height: 40px;
+  width: 450px;
+}
+
+#answ{
+  position: inherit;
+  top:80px;
+  height:35px;
+  width:300px;
+  right:150px;
+}
+
+.prev{
+  position: absolute;
+  left:450px;
+  top: 615px;
+}
