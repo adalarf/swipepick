@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "FQ6uFabwvPArVyU0gilTBN3agQiVwAzZy98OKZTSITI9vFs0ABcgCBuB009UiNdAAtMo6eoDHXlmDqs56D3W+Q==",
+  "success": true,
+  "projectFilePath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
