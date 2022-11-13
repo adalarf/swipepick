@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BzMcW6yv8q10c8o9EMttKannWx2AaQzAq3yMVbw7G+BkgTF40vgSGDDXsgjttf66ElJzBRR3GgJtnbTPt38SVw==",
+  "dgSpecHash": "Hs7vxkPndKyAUmUu7qiiph0anTXrACD8k0ugGZAPtOF2JTCgGWB2pbO4Astq32KY4LMih0rWL50rm6tgDX0yeQ==",
   "success": true,
   "projectFilePath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\kolch\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\npgsql\\7.0.0\\npgsql.7.0.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

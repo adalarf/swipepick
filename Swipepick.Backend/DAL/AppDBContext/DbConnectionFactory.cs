@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Entities.Interfaces
+namespace DAL.AppDBContext
 {
-    internal interface IDalModel<TType>
+    internal class DbConnectionFactory
     {
-        public TType Id { get; init; }
     }
 }
