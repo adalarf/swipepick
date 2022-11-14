@@ -1,9 +1,10 @@
-﻿using DAL.Repository.Interfaces;
-using System.Data;
+﻿using System.Data;
 using Npgsql;
-using System.Data.Common;
+using DAL.Entities;
+using System.Reflection;
+using Core.Dal.Repository.Interfaces;
 
-namespace DAL.AppDBContext
+namespace DAL.AppDBContext.SQL
 {
     public abstract class AppDBContext<TModel, TType> : IRepository<TModel, TType>
         where TModel : BaseSqlModelDal<TType>
@@ -50,27 +51,31 @@ namespace DAL.AppDBContext
             }
         }
 
+        protected string TableName =>
+        typeof(TModel).GetCustomAttribute<CustomTableNameAttribute>(true)?.Name
+        ?? typeof(TModel).Name.ToLowerInvariant();
+
         public void Save()
         {
             throw new NotImplementedException();
         }
 
-        void IRepository<TModel, TType>.Create(TModel item)
+        public IEnumerable<TModel> GetAll(IDbTransaction transaction = null)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<TModel> IRepository<TModel, TType>.GetAll(IDbTransaction transaction)
+        public TModel GetItem(TType id)
         {
             throw new NotImplementedException();
         }
 
-        TModel IRepository<TModel, TType>.GetItem(TType id)
+        public void Create(TModel item)
         {
             throw new NotImplementedException();
         }
 
-        void IRepository<TModel, TType>.Update(TModel item)
+        public void Update(TModel item)
         {
             throw new NotImplementedException();
         }

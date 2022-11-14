@@ -30,3 +30,14 @@ C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\obj\Debug\net6.0\refi
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\obj\Debug\net6.0\SwipepickServer.pdb
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\obj\Debug\net6.0\SwipepickServer.genruntimeconfig.cache
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\obj\Debug\net6.0\ref\SwipepickServer.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Npgsql.dll

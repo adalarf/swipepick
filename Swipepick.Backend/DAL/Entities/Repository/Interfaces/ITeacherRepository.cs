@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL.Repository.Interfaces;
+using System.Data;
 
 namespace DAL.Entities.Repository.Interfaces
 {
-    internal class ITeacherRepository
+    public interface ITeacherRepository : IRepository<TeacherDal, int>
     {
+        IDbTransaction BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.Serializable);
     }
 }

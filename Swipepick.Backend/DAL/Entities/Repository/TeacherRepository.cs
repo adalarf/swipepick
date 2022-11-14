@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL.AppDBContext;
 
 namespace DAL.Entities.Repository
 {
-    internal class TeacherRepository
+    public class TeacherRepository : AppDBContext<TeacherDal, int>
     {
+        public TeacherRepository(DalSetting dalSetting) : base(dalSetting)
+        {
+        }
     }
 }
