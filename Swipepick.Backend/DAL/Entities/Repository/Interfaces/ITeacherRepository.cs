@@ -1,4 +1,4 @@
-﻿using DAL.Repository.Interfaces;
+﻿using Core.Dal.Repository.Interfaces;
 using System.Data;
 
 namespace DAL.Entities.Repository.Interfaces

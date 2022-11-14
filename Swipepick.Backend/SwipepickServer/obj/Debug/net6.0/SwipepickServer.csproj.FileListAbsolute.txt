@@ -41,3 +41,9 @@ C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Micr
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Npgsql.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Core.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\DAL.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\DAL.pdb
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Core.pdb

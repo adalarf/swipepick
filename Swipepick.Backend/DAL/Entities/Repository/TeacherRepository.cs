@@ -1,4 +1,4 @@
-﻿using DAL.AppDBContext;
+﻿using DAL.AppDBContext.SQL;
 
 namespace DAL.Entities.Repository
 {

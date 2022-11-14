@@ -3,16 +3,22 @@ using Npgsql;
 using DAL.Entities;
 using System.Reflection;
 using Core.Dal.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL.AppDBContext.SQL
 {
-    public abstract class AppDBContext<TModel, TType> : IRepository<TModel, TType>
+    /// <summary>
+    /// Базовый репозиторий для работы с SQL
+    /// </summary>
+    public abstract class AppDBContext<TModel, TType> : DbContext, IRepository<TModel, TType>
         where TModel : BaseSqlModelDal<TType>
     {
 
         private readonly DalSetting _dalSetting;
 
         private IDbConnection _dbConnection;
+
+        private DbSet<TModel> Model { get; set; }
 
         public AppDBContext(DalSetting dalSetting)
         {
@@ -38,10 +44,9 @@ namespace DAL.AppDBContext.SQL
             }
         }
 
-        public void Delete(TType id)
-        {
-            throw new NotImplementedException();
-        }
+        protected string TableName =>
+        typeof(TModel).GetCustomAttribute<CustomTableNameAttribute>(true)?.Name
+        ?? typeof(TModel).Name.ToLowerInvariant();
 
         public void Dispose()
         {
@@ -51,10 +56,11 @@ namespace DAL.AppDBContext.SQL
             }
         }
 
-        protected string TableName =>
-        typeof(TModel).GetCustomAttribute<CustomTableNameAttribute>(true)?.Name
-        ?? typeof(TModel).Name.ToLowerInvariant();
-
+        public void Delete(TType id)
+        {
+            throw new NotImplementedException();
+        }
+        
         public void Save()
         {
             throw new NotImplementedException();
@@ -62,22 +68,25 @@ namespace DAL.AppDBContext.SQL
 
         public IEnumerable<TModel> GetAll(IDbTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            return Model.ToList();
         }
 
         public TModel GetItem(TType id)
         {
-            throw new NotImplementedException();
+            var item = Model.Find(id);
+            return item;
         }
 
         public void Create(TModel item)
         {
-            throw new NotImplementedException();
+            Model.Add(item);
+            SaveChanges();
         }
 
         public void Update(TModel item)
         {
-            throw new NotImplementedException();
+            Model.Update(item);
+            SaveChanges();
         }
     }
 }
