@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
-namespace DAL.AppDBContext
+public class DbConnectionFactory
 {
-    internal class DbConnectionFactory
+    private readonly DalSetting _dalSetting;
+
+    private IDbConnection _dbConnection;
+
+    public DbConnectionFactory(DalSetting dalSetting)
     {
+        _dalSetting = dalSetting;
     }
 }

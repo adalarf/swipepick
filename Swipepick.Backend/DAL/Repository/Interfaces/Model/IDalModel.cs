@@ -1,13 +1,12 @@
-﻿using DAL.Entities.Repository.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.AppDBContext
+namespace DAL.Repository.Interfaces.Model
 {
-    public class BaseSqlModelDal<TType> : IDalModel<TType>
+    internal interface IDalModel<TType>
     {
         public TType Id { get; init; }
     }
