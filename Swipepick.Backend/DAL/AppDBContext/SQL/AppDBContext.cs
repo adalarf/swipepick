@@ -4,6 +4,7 @@ using DAL.Entities;
 using System.Reflection;
 using Core.Dal.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DAL.AppDBContext.SQL
 {
@@ -23,6 +24,22 @@ namespace DAL.AppDBContext.SQL
         public AppDBContext(DalSetting dalSetting)
         {
             _dalSetting = dalSetting;
+            Database.EnsureCreated();
+        }
+
+        public override DbSet<TModel> Set<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields | DynamicallyAccessedMemberTypes.PublicProperties | DynamicallyAccessedMemberTypes.NonPublicProperties | DynamicallyAccessedMemberTypes.Interfaces)] TModel>()
+        {
+            return base.Set<TModel>();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql(_dalSetting.ConnectionString);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TModel>().ToTable(TableName);
         }
 
         public IDbTransaction BeginTransaction(IsolationLevel il = IsolationLevel.Serializable)
@@ -60,7 +77,7 @@ namespace DAL.AppDBContext.SQL
         {
             throw new NotImplementedException();
         }
-        
+
         public void Save()
         {
             throw new NotImplementedException();
@@ -68,6 +85,8 @@ namespace DAL.AppDBContext.SQL
 
         public IEnumerable<TModel> GetAll(IDbTransaction transaction = null)
         {
+            
+            Model = Set<TModel>();
             return Model.ToList();
         }
 
@@ -89,4 +108,4 @@ namespace DAL.AppDBContext.SQL
             SaveChanges();
         }
     }
-}
+}   

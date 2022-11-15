@@ -47,3 +47,5 @@ C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Core
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\DAL.dll
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\DAL.pdb
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Core.pdb
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

@@ -13,7 +13,7 @@ namespace DAL.Entities
         }
     };
 
-    [CustomTableName("Teachers")]
+    [CustomTableName("public.Teachers")]
     public class TeacherDal : BaseSqlModelDal<int>
     {
         public string Name { get; set; }
@@ -21,5 +21,6 @@ namespace DAL.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public int studentid { get; set; }
+        public ICollection<StudentDal> Students { get; set; }
     }
 }
