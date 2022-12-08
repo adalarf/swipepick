@@ -1,6 +1,7 @@
 const HomeFooter = () => {
   return (
-    <footer></footer>
+    <footer className="main-footer">
+    </footer>
   )
 }
 

@@ -7,11 +7,9 @@ import HomeMain from "../components/homeMain";
 
 const Index =  () => {
   return (
-    <>
-      <HomeLayout>
-        <HomeMain/>
-      </HomeLayout>
-    </>
+    <HomeLayout>
+      <HomeMain/>
+    </HomeLayout>
   )
 }
 

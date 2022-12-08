@@ -8,9 +8,9 @@ const HomeLayout = ({ children, title = 'Swipepick' }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <HomeHeader/>
+      <HomeHeader />
       {children}
-      <HomeFooter/>
+      <HomeFooter />
     </>
   )
 }
