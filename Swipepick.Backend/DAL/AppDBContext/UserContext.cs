@@ -37,6 +37,7 @@ namespace DAL.AppDBContext
                 .HasForeignKey<AnswerDal>(g => g.QuestionId);
 
             modelBuilder.Entity<QuestionDal>().HasOne(b => b.Test).WithOne(c => c.Question);
+
             modelBuilder.Entity<StudentAnswerDal>()
                 .HasOne(b => b.Student)
                 .WithOne(c => c.StudentAnswers)

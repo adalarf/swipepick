@@ -1,5 +1,5 @@
-using DAL.Entities.Repository;
-using DAL.Entities.Repository.Interfaces;
+using DAL.AppDBContext;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,9 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient(opt => new DalSetting(opt.GetRequiredService<IConfiguration>()));
-builder.Services.AddTransient<ITeacherRepository, TeacherRepository>();
-builder.Services.AddTransient<IStudentRepository, StudentRepositoty>();
+var settings = new DalSetting(builder.Configuration);
+builder.Services.AddTransient(_ => settings);
+builder.Services.AddDbContext<UserContext>(opt => opt.UseNpgsql(settings.ConnectionString));
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CORSPolicy", policy =>
@@ -34,6 +34,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("CORSPolicy");
-//app.MapGet("/test-api", () => "Hello world");
 app.MapControllers();
 app.Run();
