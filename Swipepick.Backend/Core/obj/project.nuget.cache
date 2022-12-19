@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CZhnUySnOCzcWY6KCYwaGP6tNU827dxhK/tM1gCavkd3Dr2m/2kYLQB+zUv9F78hnLt69h8GlMj8Sv89Qybr1A==",
+  "dgSpecHash": "73NiLcagruMgPQDjzeRh+rLjE8GkE+Yg9w1FJGjm1Im6bi830ZU1gRuHz2fZt0OeLA8wZESFaSYJU78nHqlxvg==",
   "success": true,
   "projectFilePath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\Core\\Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.12\\microsoft.aspnetcore.authentication.jwtbearer.6.0.12.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0\\microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.0\\microsoft.entityframeworkcore.analyzers.7.0.0.nupkg.sha512",
@@ -17,9 +19,17 @@
     "C:\\Users\\kolch\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.25.1\\microsoft.identitymodel.abstractions.6.25.1.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.10.0\\microsoft.identitymodel.jsonwebtokens.6.10.0.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.identitymodel.logging\\6.25.1\\microsoft.identitymodel.logging.6.25.1.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.25.1\\microsoft.identitymodel.tokens.6.25.1.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\npgsql\\7.0.0\\npgsql.7.0.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.0\\npgsql.entityframeworkcore.postgresql.7.0.0.nupkg.sha512",
-    "C:\\Users\\kolch\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\kolch\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.10.0\\system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,13 +1,36 @@
 using DAL.AppDBContext;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Core.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+
+            ValidIssuer = AuthOptions.ISSUER,
+
+            ValidateAudience = true,
+
+            ValidAudience = AuthOptions.AUDIENCE,
+
+            ValidateLifetime = true,
+
+            IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+
+            ValidateIssuerSigningKey = true,
+        };
+    });
+
 var settings = new DalSetting(builder.Configuration);
 builder.Services.AddTransient(_ => settings);
 builder.Services.AddDbContext<UserContext>(opt => opt.UseNpgsql(settings.ConnectionString));
@@ -32,6 +55,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseCors("CORSPolicy");
 app.MapControllers();
