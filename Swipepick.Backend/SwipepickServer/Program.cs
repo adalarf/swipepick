@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Core.Options;
+using DAL.Repository.Interfaces;
+using DAL.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +35,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 var settings = new DalSetting(builder.Configuration);
 builder.Services.AddTransient(_ => settings);
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 builder.Services.AddDbContext<UserContext>(opt => opt.UseNpgsql(settings.ConnectionString));
 builder.Services.AddCors(options =>
 {

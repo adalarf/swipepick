@@ -49,3 +49,11 @@ C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\DAL.
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Core.pdb
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
