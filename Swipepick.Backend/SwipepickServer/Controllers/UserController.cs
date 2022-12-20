@@ -13,8 +13,8 @@ namespace SwipepickServer.Controllers
         }
 
         [Authorize]
-        [HttpGet("teacher/list")]
-        public IActionResult GetTests()
+        [HttpPost("create-test")]
+        public IActionResult CreateTest()
         {
             return Ok();
         }

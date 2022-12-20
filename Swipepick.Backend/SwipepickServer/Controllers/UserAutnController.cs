@@ -4,6 +4,7 @@ using DAL.Repository.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
@@ -79,8 +80,11 @@ namespace SwipepickServer.Controllers
 
         public class UserLogin
         {
+            [EmailAddress(ErrorMessage = "Please, input a correct email")]
+            [Required(ErrorMessage = "Please, input your email")]
             public string Email { get; set; }
 
+            [Required(ErrorMessage = "Please, input your password")]
             public string Password { get; set; }
         }
     }

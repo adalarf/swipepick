@@ -18,7 +18,7 @@ namespace DAL.Entities
         public int UserId { get; init; }
 
         [Column("question")]
-        public QuestionDal Question { get; init; }
+        public List<QuestionDal> Questions { get; init; }
 
         public User User { get; init; }
 

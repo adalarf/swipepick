@@ -20,7 +20,7 @@ namespace DAL.Entities
         [Column("lastname")]
         public string Lastname { get; set; }
 
-        public StudentAnswerDal StudentAnswers { get; set; }
+        public List<StudentAnswerDal> StudentAnswers { get; set; }
 
         public User User { get; set; }
 

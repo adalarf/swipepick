@@ -49,42 +49,22 @@ namespace SwipepickServer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "QuestionDal",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    TestId = table.Column<int>(type: "integer", nullable: false),
-                    Question = table.Column<string>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_QuestionDal", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_QuestionDal_Test_TestId",
-                        column: x => x.TestId,
-                        principalTable: "Test",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Student",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    name = table.Column<string>(type: "text", nullable: false),
-                    lastname = table.Column<string>(type: "text", nullable: false),
                     userid = table.Column<int>(name: "user_id", type: "integer", nullable: false),
-                    TestId = table.Column<int>(type: "integer", nullable: false)
+                    testid = table.Column<int>(name: "test_id", type: "integer", nullable: false),
+                    name = table.Column<string>(type: "text", nullable: false),
+                    lastname = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Student", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Student_Test_TestId",
-                        column: x => x.TestId,
+                        name: "FK_Student_Test_test_id",
+                        column: x => x.testid,
                         principalTable: "Test",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -97,24 +77,21 @@ namespace SwipepickServer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Answer",
+                name: "Test_question",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    QuestionId = table.Column<int>(type: "integer", nullable: false),
-                    answer1 = table.Column<string>(name: "answer_1", type: "text", nullable: false),
-                    answer2 = table.Column<string>(name: "answer_2", type: "text", nullable: false),
-                    answer3 = table.Column<string>(name: "answer_3", type: "text", nullable: false),
-                    answer4 = table.Column<string>(name: "answer_4", type: "text", nullable: false)
+                    TestId = table.Column<int>(type: "integer", nullable: false),
+                    Question = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Answer", x => x.Id);
+                    table.PrimaryKey("PK_Test_question", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Answer_QuestionDal_QuestionId",
-                        column: x => x.QuestionId,
-                        principalTable: "QuestionDal",
+                        name: "FK_Test_question_Test_TestId",
+                        column: x => x.TestId,
+                        principalTable: "Test",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -142,6 +119,29 @@ namespace SwipepickServer.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Answer",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    QuestionId = table.Column<int>(type: "integer", nullable: false),
+                    answer1 = table.Column<string>(name: "answer_1", type: "text", nullable: false),
+                    answer2 = table.Column<string>(name: "answer_2", type: "text", nullable: false),
+                    answer3 = table.Column<string>(name: "answer_3", type: "text", nullable: false),
+                    answer4 = table.Column<string>(name: "answer_4", type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Answer", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Answer_Test_question_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Test_question",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Answer_QuestionId",
                 table: "Answer",
@@ -149,15 +149,9 @@ namespace SwipepickServer.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_QuestionDal_TestId",
-                table: "QuestionDal",
-                column: "TestId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Student_TestId",
+                name: "IX_Student_test_id",
                 table: "Student",
-                column: "TestId");
+                column: "test_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Student_user_id",
@@ -167,8 +161,7 @@ namespace SwipepickServer.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Student_Answer_StudentId",
                 table: "Student_Answer",
-                column: "StudentId",
-                unique: true);
+                column: "StudentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Test_url",
@@ -180,6 +173,11 @@ namespace SwipepickServer.Migrations
                 name: "IX_Test_user_id",
                 table: "Test",
                 column: "user_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Test_question_TestId",
+                table: "Test_question",
+                column: "TestId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_User_email",
@@ -198,7 +196,7 @@ namespace SwipepickServer.Migrations
                 name: "Student_Answer");
 
             migrationBuilder.DropTable(
-                name: "QuestionDal");
+                name: "Test_question");
 
             migrationBuilder.DropTable(
                 name: "Student");

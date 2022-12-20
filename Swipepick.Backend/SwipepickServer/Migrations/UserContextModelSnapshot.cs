@@ -77,10 +77,9 @@ namespace SwipepickServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TestId")
-                        .IsUnique();
+                    b.HasIndex("TestId");
 
-                    b.ToTable("QuestionDal");
+                    b.ToTable("Test_question");
                 });
 
             modelBuilder.Entity("DAL.Entities.StudentAnswerDal", b =>
@@ -116,8 +115,7 @@ namespace SwipepickServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StudentId")
-                        .IsUnique();
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Student_Answer");
                 });
@@ -141,7 +139,8 @@ namespace SwipepickServer.Migrations
                         .HasColumnName("name");
 
                     b.Property<int>("TestId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("test_id");
 
                     b.Property<int>("UserId")
                         .HasColumnType("integer")
@@ -238,8 +237,8 @@ namespace SwipepickServer.Migrations
             modelBuilder.Entity("DAL.Entities.QuestionDal", b =>
                 {
                     b.HasOne("DAL.Entities.TestDal", "Test")
-                        .WithOne("Question")
-                        .HasForeignKey("DAL.Entities.QuestionDal", "TestId")
+                        .WithMany("Questions")
+                        .HasForeignKey("TestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -249,8 +248,8 @@ namespace SwipepickServer.Migrations
             modelBuilder.Entity("DAL.Entities.StudentAnswerDal", b =>
                 {
                     b.HasOne("DAL.Entities.StudentDal", "Student")
-                        .WithOne("StudentAnswers")
-                        .HasForeignKey("DAL.Entities.StudentAnswerDal", "StudentId")
+                        .WithMany("StudentAnswers")
+                        .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -295,14 +294,12 @@ namespace SwipepickServer.Migrations
 
             modelBuilder.Entity("DAL.Entities.StudentDal", b =>
                 {
-                    b.Navigation("StudentAnswers")
-                        .IsRequired();
+                    b.Navigation("StudentAnswers");
                 });
 
             modelBuilder.Entity("DAL.Entities.TestDal", b =>
                 {
-                    b.Navigation("Question")
-                        .IsRequired();
+                    b.Navigation("Questions");
 
                     b.Navigation("Students");
                 });

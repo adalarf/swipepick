@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DAL.Entities
 {
-    [Table("test_question")]
+    [Table("Test_question")]
     public class QuestionDal
     {
         public int Id { get; set; }
