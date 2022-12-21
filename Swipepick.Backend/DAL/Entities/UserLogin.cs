@@ -2,6 +2,9 @@
 
 namespace DAL.Entities
 {
+    /// <summary>
+    /// Данный класс используется для входа на сайт
+    /// </summary>
     public class UserLogin
     {
         [EmailAddress(ErrorMessage = "Please, input a correct email")]

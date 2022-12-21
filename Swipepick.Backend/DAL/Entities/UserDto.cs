@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DAL.Entities
 {
+    /// <summary>
+    /// Данный класс используется для регистрации
+    /// </summary>
     public class UserDto
     {
         [EmailAddress(ErrorMessage = "Please, input a correct email")]

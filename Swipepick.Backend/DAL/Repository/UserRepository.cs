@@ -1,6 +1,7 @@
 ﻿using DAL.AppDBContext;
 using DAL.Entities;
 using DAL.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -62,24 +63,9 @@ namespace DAL.Repository
 
         public List<TestDal> GetTests(int userId)
         {
-            var result = new List<TestDal>();
-            var tests = _userContext.Tests.Where(x => x.UserId == userId).ToList();
-            foreach (var test in tests)
-            {
-                var questions = _test.GetQuestions(test.Id);
-                var newTest = new TestDal()
-                {
-                    Id = test.Id,
-                    Url = test.Url,
-                    User = test.User,
-                    UserId = test.UserId,
-                    Students = test.Students,
-                    Questions = questions
-                };
-                result.Add(newTest);
-            }
+            var tests = _userContext.Tests.Include(x => x.Questions);
 
-            return result;
+            return tests.ToList();
         }
 
         private void HashPassword(string password, out byte[] passwordHash, out byte[] passwordSalt)

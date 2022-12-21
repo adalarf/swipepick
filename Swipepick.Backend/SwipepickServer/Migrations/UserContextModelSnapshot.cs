@@ -60,7 +60,7 @@ namespace SwipepickServer.Migrations
                     b.HasIndex("QuestionId")
                         .IsUnique();
 
-                    b.ToTable("Answer");
+                    b.ToTable("Answer", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Entities.QuestionDal", b =>
@@ -82,7 +82,7 @@ namespace SwipepickServer.Migrations
 
                     b.HasIndex("TestId");
 
-                    b.ToTable("Test_question");
+                    b.ToTable("Test_question", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Entities.StudentAnswerDal", b =>
@@ -120,7 +120,7 @@ namespace SwipepickServer.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Student_Answer");
+                    b.ToTable("Student_Answer", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Entities.StudentDal", b =>
@@ -155,7 +155,7 @@ namespace SwipepickServer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Student");
+                    b.ToTable("Student", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Entities.TestDal", b =>
@@ -182,7 +182,7 @@ namespace SwipepickServer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Test");
+                    b.ToTable("Test", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Entities.User", b =>
@@ -223,7 +223,7 @@ namespace SwipepickServer.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("User");
+                    b.ToTable("User", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Entities.AnswerDal", b =>

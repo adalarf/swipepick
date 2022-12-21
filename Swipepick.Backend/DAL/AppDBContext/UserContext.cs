@@ -27,15 +27,17 @@ namespace DAL.AppDBContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<QuestionDal>().OwnsOne(typeof(AnswerDal), nameof(QuestionDal.Answers));
+
             modelBuilder.Entity<TestDal>()
                 .HasOne(owner => owner.User)
                 .WithMany(user => user.Tests)
                 .HasForeignKey(fk => fk.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<AnswerDal>()
-                .HasOne(b => b.Question)
-                .WithOne(c => c.Answers);
+            //modelBuilder.Entity<AnswerDal>()
+            //    .HasOne(b => b.Question)
+            //    .WithOne(c => c.Answers);
 
             modelBuilder.Entity<QuestionDal>()
                 .HasOne(b => b.Test)
