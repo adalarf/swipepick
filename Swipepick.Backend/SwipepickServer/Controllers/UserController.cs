@@ -2,6 +2,7 @@
 using DAL.Repository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace SwipepickServer.Controllers
 {
@@ -16,7 +17,7 @@ namespace SwipepickServer.Controllers
             _user = userRepository;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost("create-test")]
         public IActionResult CreateTest(int userId, List<QuestionDal> questions)
         {
@@ -24,11 +25,12 @@ namespace SwipepickServer.Controllers
             return Ok(userId);
         }
 
-        [HttpGet("test")]
+        [HttpGet("get-tests")]
         [Authorize]
-        public IActionResult Test()
+        public IActionResult Test([FromQuery] int userId)
         {
-            return Ok(1);
+            var tests = _user.GetTests(userId);
+            return Ok(tests);
         }
     }
 }

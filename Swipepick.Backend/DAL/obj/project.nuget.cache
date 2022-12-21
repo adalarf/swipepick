@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PZ2KfNmMRDp80HTQx1JhoAG4bLlVkD+SA6R+aLv0IuIv6LUtbtxjbbfohGu4KNS1EfNcA2M0xPxL+wbah5rI2w==",
+  "dgSpecHash": "q1KXBXFJz/3CaukFQFl4xB2N5qtFzOnQTWzvXJ7OcbFiUKC7I6EM/PikSqcJ5TPdC8JdfVLDLvJIvMw3nspzEQ==",
   "success": true,
   "projectFilePath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,8 @@
     "C:\\Users\\kolch\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.0\\npgsql.entityframeworkcore.postgresql.7.0.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.10.0\\system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
     "C:\\Users\\kolch\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\kolch\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    "C:\\Users\\kolch\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\kolch\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
   ],
   "logs": []
 }

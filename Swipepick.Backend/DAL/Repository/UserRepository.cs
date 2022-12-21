@@ -9,10 +9,12 @@ namespace DAL.Repository
     public class UserRepository : IUserRepository
     {
         private readonly UserContext _userContext;
+        private ITestRepository _test;
 
-        public UserRepository(UserContext userContext)
+        public UserRepository(UserContext userContext, ITestRepository test)
         {
             _userContext = userContext;
+            _test = test;
         }
 
         public void AddUser(UserDto user)
@@ -56,6 +58,28 @@ namespace DAL.Repository
             };
 
             _userContext.Tests.Add(test);
+        }
+
+        public List<TestDal> GetTests(int userId)
+        {
+            var result = new List<TestDal>();
+            var tests = _userContext.Tests.Where(x => x.UserId == userId).ToList();
+            foreach (var test in tests)
+            {
+                var questions = _test.GetQuestions(test.Id);
+                var newTest = new TestDal()
+                {
+                    Id = test.Id,
+                    Url = test.Url,
+                    User = test.User,
+                    UserId = test.UserId,
+                    Students = test.Students,
+                    Questions = questions
+                };
+                result.Add(newTest);
+            }
+
+            return result;
         }
 
         private void HashPassword(string password, out byte[] passwordHash, out byte[] passwordSalt)

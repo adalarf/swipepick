@@ -57,3 +57,5 @@ C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Micr
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\My Projects\swipepick\Swipepick.Backend\SwipepickServer\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

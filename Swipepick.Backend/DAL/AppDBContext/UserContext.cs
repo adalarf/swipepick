@@ -18,6 +18,8 @@ namespace DAL.AppDBContext
 
         public DbSet<StudentDal> Students { get; set; }
 
+        public DbSet<QuestionDal> Questions { get; set; }
+
         public UserContext(DalSetting setting)
         {
             _setting = setting;

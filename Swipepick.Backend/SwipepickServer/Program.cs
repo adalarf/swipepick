@@ -59,6 +59,8 @@ builder.Services.AddSwaggerGen(options =>
 var settings = new DalSetting(builder.Configuration);
 builder.Services.AddTransient(_ => settings);
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddTransient<ITestRepository, TestRepository>();
+
 builder.Services.AddDbContext<UserContext>(opt => opt.UseNpgsql(settings.ConnectionString));
 
 builder.Services.AddCors(options =>
