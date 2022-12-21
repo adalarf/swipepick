@@ -32,7 +32,7 @@ namespace DAL.Repository
             _userContext.SaveChanges();
         }
 
-        public User? GetUser(UserDto user)
+        public User? GetUser(UserLogin user)
         {
             var exsitingUser = _userContext.Users.FirstOrDefault(us => us.Email == user.Email);
 
@@ -43,6 +43,19 @@ namespace DAL.Repository
                 return null;
 
             return exsitingUser;
+        }
+
+        public void AddTest(int userId, List<QuestionDal> questions)
+        {
+            var segment = Guid.NewGuid().ToString().Substring(0, 4);
+            var test = new TestDal()
+            {
+                Url = segment,
+                UserId = userId,
+                Questions = questions
+            };
+
+            _userContext.Tests.Add(test);
         }
 
         private void HashPassword(string password, out byte[] passwordHash, out byte[] passwordSalt)

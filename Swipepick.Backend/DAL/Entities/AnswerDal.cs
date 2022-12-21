@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.Text.Json.Serialization;
 
 namespace DAL.Entities
 {
@@ -11,6 +11,7 @@ namespace DAL.Entities
 
         public int QuestionId { get; set; }
 
+        [JsonIgnore]
         public QuestionDal Question { get; set; }
 
         [Column("answer_1")]

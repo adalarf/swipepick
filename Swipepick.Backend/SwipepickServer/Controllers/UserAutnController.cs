@@ -1,12 +1,16 @@
 ﻿using Core.Options;
 using DAL.Entities;
 using DAL.Repository.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Primitives;
 using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
 
 namespace SwipepickServer.Controllers
 {
@@ -15,42 +19,29 @@ namespace SwipepickServer.Controllers
     public class UserAutnController : Controller
     {
         private IUserRepository _user;
+        private readonly IConfiguration _config;
 
-        public UserAutnController(IUserRepository userRepository)
+        public UserAutnController(IUserRepository userRepository, IConfiguration configuration)
         {
             _user = userRepository;
+            _config = configuration;
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public IActionResult Login(UserLogin user)
         {
-            var userDto = new UserDto() { Email = user.Email, Password = user.Password };
-            var identity = GetIdentity(userDto);
+            var userDto = _user.GetUser(user);
 
-            if (identity == null)
-            {
-                return BadRequest(new { errorText = "Invalid username or password." });
-            }
+            if (userDto == null)
+                return BadRequest(new { errorText = "User Not Found" });
 
-            var now = DateTime.UtcNow;
-            var jwt = new JwtSecurityToken(
-                    issuer: AuthOptions.ISSUER,
-                    audience: AuthOptions.AUDIENCE,
-                    notBefore: now,
-                    claims: identity.Claims,
-                    expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
-                    signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
-            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+            var tokenString = GenerateJwt(userDto);
+            return Ok(new { token = tokenString });
 
-            var response = new
-            {
-                access_token = encodedJwt,
-                username = identity.Name
-            };
-
-            return Json(response);
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public IActionResult Register(UserDto userDto)
         {
@@ -58,34 +49,38 @@ namespace SwipepickServer.Controllers
             return Ok(userDto.Email);
         }
 
-        private ClaimsIdentity GetIdentity(UserDto userDto)
+        private List<Claim> GetClaims(User user)
         {
-            
-            var user = _user.GetUser(userDto);
             if (user != null)
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email)
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.Name, user.Name),
+                    new Claim(ClaimTypes.Surname, user.Lastname),
+                    new Claim("Date", DateTime.Now.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
 
-                var claimsIdentity = new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
-                                                        ClaimsIdentity.DefaultRoleClaimType);
-                return claimsIdentity;
+                return claims;
             }
 
             // если пользователя не найдено
             return null;
         }
 
-        public class UserLogin
+        private string GenerateJwt(User user)
         {
-            [EmailAddress(ErrorMessage = "Please, input a correct email")]
-            [Required(ErrorMessage = "Please, input your email")]
-            public string Email { get; set; }
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JwtAuth:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var claims = GetClaims(user);
+            var token = new JwtSecurityToken(_config["JwtAuth:Issuer"],
+              _config["JwtAuth:Issuer"],
+              claims,
+              expires: DateTime.Now.AddMinutes(120),
+              signingCredentials: credentials);
 
-            [Required(ErrorMessage = "Please, input your password")]
-            public string Password { get; set; }
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }
