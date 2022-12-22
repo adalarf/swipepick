@@ -10,12 +10,10 @@ namespace DAL.Repository
     public class UserRepository : IUserRepository
     {
         private readonly UserContext _userContext;
-        private ITestRepository _test;
 
-        public UserRepository(UserContext userContext, ITestRepository test)
+        public UserRepository(UserContext userContext)
         {
             _userContext = userContext;
-            _test = test;
         }
 
         public void AddUser(UserDto user)

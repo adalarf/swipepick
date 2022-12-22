@@ -7,11 +7,6 @@ namespace DAL.Repository
 {
     public class TestRepository
     {
-        private readonly UserContext _userContext;
-
-        public TestRepository(UserContext userContext)
-        {
-            _userContext = userContext;
-        }
+        
     }
 }

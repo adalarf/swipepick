@@ -1,6 +1,5 @@
 ﻿using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace DAL.AppDBContext
 {
@@ -34,10 +33,6 @@ namespace DAL.AppDBContext
                 .WithMany(user => user.Tests)
                 .HasForeignKey(fk => fk.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            //modelBuilder.Entity<AnswerDal>()
-            //    .HasOne(b => b.Question)
-            //    .WithOne(c => c.Answers);
 
             modelBuilder.Entity<QuestionDal>()
                 .HasOne(b => b.Test)
