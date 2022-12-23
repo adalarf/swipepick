@@ -46,22 +46,48 @@ namespace DAL.Repository
             return exsitingUser;
         }
 
-        public void AddTest(int userId, List<QuestionDal> questions)
+        public void AddTest(string email, Dictionary<string, List<string>> qustions)
         {
-            var segment = Guid.NewGuid().ToString().Substring(0, 4);
-            var test = new TestDal()
-            {
-                Url = segment,
-                UserId = userId,
-                Questions = questions
-            };
+            var user = _userContext.Users.FirstOrDefault(x => x.Email == email);
+            var testGuid = Guid.NewGuid().ToString().Substring(0, 4);
+            var questions = new List<QuestionDal>();
+            var test = new TestDal() { Url = testGuid, User = user, UserId = user.Id, Students = null };
 
+            foreach (var question in qustions.Keys)
+            {
+                var questionId = new Random().Next(3, 10000);
+                var answerId = new Random().Next(50, 20000);
+                var newQuestion = new QuestionDal()
+                {
+                    Question = question,
+                    Id = questionId,
+                    Test = test,
+                    TestId = test.Id
+                };
+
+                var answs = new AnswerDal()
+                {
+                    Id = answerId,
+                    TestId = test.Id,
+                    Question = newQuestion,
+                    QuestionId = newQuestion.Id,
+                    FirstAnswer = qustions[question][0],
+                    SecondAnswer = qustions[question][1],
+                    ThirdAnswer = qustions[question][2],
+                    FourhAnswer = qustions[question][3]
+                };
+                newQuestion.Answers = answs;
+                questions.Add(newQuestion);
+            }
+            test.Questions = questions;
             _userContext.Tests.Add(test);
+            _userContext.SaveChanges();
         }
 
-        public List<TestDal> GetTests(int userId)
+        public List<TestDal> GetTests(string email)
         {
-            var tests = _userContext.Tests.Include(x => x.Questions);
+            var user = _userContext.Users.FirstOrDefault(x => x.Email == email);
+            var tests = _userContext.Tests.Where(x => x.UserId == user.Id).Include(x => x.Questions);
 
             return tests.ToList();
         }

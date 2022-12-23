@@ -21,7 +21,7 @@ namespace DAL.Entities
         public int UserId { get; init; }
 
         [Column("question")]
-        public List<QuestionDal> Questions { get; init; }
+        public List<QuestionDal> Questions { get; set; }
 
         [JsonIgnore]
         public User User { get; init; }

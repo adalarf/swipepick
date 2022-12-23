@@ -10,7 +10,7 @@ namespace SwipepickServer.Controllers
     [Route("api/swipepick/user")]
     public class UserController : Controller
     {
-        private IUserRepository _user;
+        private readonly IUserRepository _user;
 
         public UserController(IUserRepository userRepository)
         {
@@ -19,17 +19,17 @@ namespace SwipepickServer.Controllers
 
         [Authorize]
         [HttpPost("create-test")]
-        public IActionResult CreateTest(int userId, List<QuestionDal> questions)
+        public IActionResult CreateTest([FromHeader] string email, Dictionary<string, List<string>> questions)
         {
-            _user.AddTest(userId, questions);
-            return Ok(userId);
+            _user.AddTest(email, questions);
+            return Ok(email);
         }
 
         [HttpGet("get-tests")]
         [Authorize]
-        public IActionResult Test([FromQuery] int userId)
+        public IActionResult Test([FromHeader] string email)
         {
-            var tests = _user.GetTests(userId);
+            var tests = _user.GetTests(email);
             return Ok(tests);
         }
     }

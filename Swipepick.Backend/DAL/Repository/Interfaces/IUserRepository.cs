@@ -6,10 +6,10 @@ namespace DAL.Repository.Interfaces
     {
         User GetUser(UserLogin user);
 
-        List<TestDal> GetTests(int userId);
+        List<TestDal> GetTests(string email);
 
         void AddUser(UserDto user);
 
-        void AddTest(int userId, List<QuestionDal> questions);
+        void AddTest(string email, Dictionary<string, List<string>> qustions);
     }
 }
