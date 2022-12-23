@@ -1,6 +1,5 @@
 ﻿using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace DAL.AppDBContext
 {
@@ -18,6 +17,8 @@ namespace DAL.AppDBContext
 
         public DbSet<StudentDal> Students { get; set; }
 
+        public DbSet<QuestionDal> Questions { get; set; }
+
         public UserContext(DalSetting setting)
         {
             _setting = setting;
@@ -25,22 +26,23 @@ namespace DAL.AppDBContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<QuestionDal>().OwnsOne(typeof(AnswerDal), nameof(QuestionDal.Answers));
+
             modelBuilder.Entity<TestDal>()
                 .HasOne(owner => owner.User)
                 .WithMany(user => user.Tests)
                 .HasForeignKey(fk => fk.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<AnswerDal>()
-                .HasOne(b => b.Question)
-                .WithOne(c => c.Answers)
-                .HasForeignKey<AnswerDal>(g => g.QuestionId);
+            modelBuilder.Entity<QuestionDal>()
+                .HasOne(b => b.Test)
+                .WithMany(c => c.Questions)
+                .HasForeignKey(fk => fk.TestId);
 
-            modelBuilder.Entity<QuestionDal>().HasOne(b => b.Test).WithOne(c => c.Question);
             modelBuilder.Entity<StudentAnswerDal>()
                 .HasOne(b => b.Student)
-                .WithOne(c => c.StudentAnswers)
-                .HasForeignKey<StudentAnswerDal>(g => g.StudentId);
+                .WithMany(c => c.StudentAnswers)
+                .HasForeignKey(g => g.StudentId);
 
             modelBuilder.Entity<StudentDal>()
                 .HasOne(owner => owner.User)

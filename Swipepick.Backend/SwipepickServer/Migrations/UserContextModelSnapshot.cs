@@ -21,66 +21,28 @@ namespace SwipepickServer.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("DAL.Entities.AnswerDal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("FirstAnswer")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("answer_1");
-
-                    b.Property<string>("FourhAnswer")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("answer_4");
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("SecondAnswer")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("answer_2");
-
-                    b.Property<string>("ThirdAnswer")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("answer_3");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuestionId")
-                        .IsUnique();
-
-                    b.ToTable("Answer");
-                });
-
             modelBuilder.Entity("DAL.Entities.QuestionDal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasAnnotation("Relational:JsonPropertyName", "qustion_id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Question")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasAnnotation("Relational:JsonPropertyName", "question");
 
                     b.Property<int>("TestId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TestId")
-                        .IsUnique();
+                    b.HasIndex("TestId");
 
-                    b.ToTable("QuestionDal");
+                    b.ToTable("Test_question");
                 });
 
             modelBuilder.Entity("DAL.Entities.StudentAnswerDal", b =>
@@ -116,8 +78,7 @@ namespace SwipepickServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StudentId")
-                        .IsUnique();
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Student_Answer");
                 });
@@ -141,7 +102,8 @@ namespace SwipepickServer.Migrations
                         .HasColumnName("name");
 
                     b.Property<int>("TestId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("test_id");
 
                     b.Property<int>("UserId")
                         .HasColumnType("integer")
@@ -160,18 +122,21 @@ namespace SwipepickServer.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasAnnotation("Relational:JsonPropertyName", "test_id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("url");
+                        .HasColumnName("url")
+                        .HasAnnotation("Relational:JsonPropertyName", "test_url");
 
                     b.Property<int>("UserId")
                         .HasColumnType("integer")
-                        .HasColumnName("user_id");
+                        .HasColumnName("user_id")
+                        .HasAnnotation("Relational:JsonPropertyName", "user_id");
 
                     b.HasKey("Id");
 
@@ -224,23 +189,63 @@ namespace SwipepickServer.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("DAL.Entities.AnswerDal", b =>
-                {
-                    b.HasOne("DAL.Entities.QuestionDal", "Question")
-                        .WithOne("Answers")
-                        .HasForeignKey("DAL.Entities.AnswerDal", "QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Question");
-                });
-
             modelBuilder.Entity("DAL.Entities.QuestionDal", b =>
                 {
                     b.HasOne("DAL.Entities.TestDal", "Test")
-                        .WithOne("Question")
-                        .HasForeignKey("DAL.Entities.QuestionDal", "TestId")
+                        .WithMany("Questions")
+                        .HasForeignKey("TestId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.OwnsOne("DAL.Entities.AnswerDal", "Answers", b1 =>
+                        {
+                            b1.Property<int>("QuestionId")
+                                .HasColumnType("integer")
+                                .HasAnnotation("Relational:JsonPropertyName", "question_id");
+
+                            b1.Property<string>("FirstAnswer")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("answer_1")
+                                .HasAnnotation("Relational:JsonPropertyName", "answer_1");
+
+                            b1.Property<string>("FourhAnswer")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("answer_4")
+                                .HasAnnotation("Relational:JsonPropertyName", "answer_4");
+
+                            b1.Property<int>("Id")
+                                .HasColumnType("integer")
+                                .HasAnnotation("Relational:JsonPropertyName", "answer_id");
+
+                            b1.Property<string>("SecondAnswer")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("answer_2")
+                                .HasAnnotation("Relational:JsonPropertyName", "answer_2");
+
+                            b1.Property<int>("TestId")
+                                .HasColumnType("integer")
+                                .HasAnnotation("Relational:JsonPropertyName", "test_id");
+
+                            b1.Property<string>("ThirdAnswer")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("answer_3")
+                                .HasAnnotation("Relational:JsonPropertyName", "answer_3");
+
+                            b1.HasKey("QuestionId");
+
+                            b1.ToTable("Answer");
+
+                            b1.WithOwner("Question")
+                                .HasForeignKey("QuestionId");
+
+                            b1.Navigation("Question");
+                        });
+
+                    b.Navigation("Answers")
                         .IsRequired();
 
                     b.Navigation("Test");
@@ -249,8 +254,8 @@ namespace SwipepickServer.Migrations
             modelBuilder.Entity("DAL.Entities.StudentAnswerDal", b =>
                 {
                     b.HasOne("DAL.Entities.StudentDal", "Student")
-                        .WithOne("StudentAnswers")
-                        .HasForeignKey("DAL.Entities.StudentAnswerDal", "StudentId")
+                        .WithMany("StudentAnswers")
+                        .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -287,22 +292,14 @@ namespace SwipepickServer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DAL.Entities.QuestionDal", b =>
-                {
-                    b.Navigation("Answers")
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("DAL.Entities.StudentDal", b =>
                 {
-                    b.Navigation("StudentAnswers")
-                        .IsRequired();
+                    b.Navigation("StudentAnswers");
                 });
 
             modelBuilder.Entity("DAL.Entities.TestDal", b =>
                 {
-                    b.Navigation("Question")
-                        .IsRequired();
+                    b.Navigation("Questions");
 
                     b.Navigation("Students");
                 });
