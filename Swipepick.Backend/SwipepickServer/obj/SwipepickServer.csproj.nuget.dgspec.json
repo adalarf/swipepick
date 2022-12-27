@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj": {}
+    "C:\\My Projects\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj": {}
   },
   "projects": {
-    "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\Core\\Core.csproj": {
+    "C:\\My Projects\\swipepick\\Swipepick.Backend\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\My Projects\\swipepick\\Swipepick.Backend\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\Core\\obj\\",
+        "projectPath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\kolch\\.nuget\\packages\\",
+        "outputPath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\programs\\visual studio\\shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kolch\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -63,7 +63,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -72,24 +73,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj": {
+    "C:\\My Projects\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\My Projects\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\DAL\\obj\\",
+        "projectPath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\kolch\\.nuget\\packages\\",
+        "outputPath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\programs\\visual studio\\shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kolch\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -104,8 +105,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\Core\\Core.csproj": {
-                "projectPath": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\Core\\Core.csproj"
+              "C:\\My Projects\\swipepick\\Swipepick.Backend\\Core\\Core.csproj": {
+                "projectPath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\Core\\Core.csproj"
               }
             }
           }
@@ -151,7 +152,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -160,24 +162,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj": {
+    "C:\\My Projects\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj",
+        "projectUniqueName": "C:\\My Projects\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj",
         "projectName": "SwipepickServer",
-        "projectPath": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\SwipepickServer\\obj\\",
+        "projectPath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\SwipepickServer\\SwipepickServer.csproj",
+        "packagesPath": "C:\\Users\\kolch\\.nuget\\packages\\",
+        "outputPath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\SwipepickServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\programs\\visual studio\\shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kolch\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -192,8 +194,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\codes\\web\\nextjs\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj"
+              "C:\\My Projects\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\My Projects\\swipepick\\Swipepick.Backend\\DAL\\DAL.csproj"
               }
             }
           }
@@ -247,7 +249,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -259,7 +262,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
