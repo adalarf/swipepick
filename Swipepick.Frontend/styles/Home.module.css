@@ -1,0 +1,121 @@
+.test{
+    position: absolute;
+    border: solid;
+    border-radius: 10px;
+    padding: 50px 100px 530px 100px;
+    left: 130px;
+    top: 50px;
+    font-size: 60px;
+}
+
+.answerfield{
+    position: absolute;
+    left: 230px;
+    top: 250px;
+}
+
+.answer{
+    position: relative;
+    border: solid;
+    border-radius: 8px;
+    font-size: 30px;
+    padding: 5px 750px 5px 10px;
+    margin-top:20px;
+}
+
+.answer:hover{
+    background-color: #4f72e3;
+}
+
+.next{
+    position: absolute;
+    left: 1200px;
+    top: 660px;
+    background-color: #3db825;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.fanswer{
+    position: relative;
+    border: solid;
+    border-radius: 8px;
+    font-size: 30px;
+    padding: 5px 750px 5px 10px;
+    margin-top:20px;
+    background-color: red;
+}
+
+.prev{
+    position: absolute;
+    left: 220px;
+    top: 660px;
+    background-color: #4f72e3;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.test1{
+    position: absolute;
+    border: solid;
+    border-radius: 10px;
+    padding: 50px 278px 530px 100px;
+    left: 130px;
+    top: 50px;
+    font-size: 60px;
+}
+
+.answerfield1{
+    position: absolute;
+    left: 230px;
+    top: 250px;
+}
+
+.answer1{
+    position: relative;
+    border: solid;
+    border-radius: 8px;
+    font-size: 30px;
+    padding: 5px 620px 5px 10px;
+    margin-top:20px;
+}
+
+.fanswer1{
+    position: relative;
+    border: solid;
+    border-radius: 8px;
+    font-size: 30px;
+    padding: 5px 620px 5px 10px;
+    margin-top:20px;
+    background-color: red;
+}
+
+
+.res{
+    position: absolute;
+    border: solid;
+    border-radius: 10px;
+    padding: 50px 100px 530px 100px;
+    left: 550px;
+    top: 50px;
+    font-size: 60px;
+}
+
+.right{
+    position: absolute;
+    left: 690px;
+    font-size:20px;
+    top: 300px;
+}
+.wrong{
+    position: absolute;
+    left: 690px;
+    font-size:20px;
+    top: 370px;
+}
+
+.answer1:hover{
+    background-color: #4f72e3;
+}
