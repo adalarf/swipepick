@@ -18,6 +18,18 @@ const Test1 = () => {
       setActiveState(prev => !prev);
     } 
 
+    // useEffect(() => {
+    //     document.addEventListener('keydown', detectKeyDown, true)
+    // }, [])
+
+    // const detectKeyDown = (e) => {
+    //     console.log("Clicked key: ", e.key)
+    //     if(e.key === 'ArrowUp'){
+    //         // console.log("Key Clicker: ArrowUp")
+    //         return(<div>aaaaaaaaaaaaaaaaaa</div>)
+    //     }
+    // }
+
     return (
         <div>
                 <div>

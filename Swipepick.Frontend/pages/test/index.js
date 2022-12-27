@@ -3,110 +3,133 @@ import {useState, useEffect} from "react";
 import  ReactDOM from 'react-dom';
 
 
-// function eventhandler(){
-
-//     const useKeyPress = (key) => {
-//         const [isKeyPressed, setIsKeyPressed] = useState(false)
-//     }
-
-//     const downHandler = ({key}) => {
-//         if(key === keyTarget) setIsKeyPressed(true)
-//     }
-
-//     const upHandler = ({key}) => {
-//         if(key === keyTarget) setIsKeyPressed(false)
-//     }
-
-//     useEffect(() => {
-//         window.addEventListener('keydown', downHandler)
-//         window.addEventListener('keyup', downHandler)
-
-//         return () => {
-//             window.removeEventListener('keydown', downHandler)
-//             window.removeEventListener('keyup', upHandler)
-//         }
-//     }, [])
-//     return isKeyPressed
-// }
-
-
-
-// let requestUrl = 'https://localhost:7286/api/user/auth/test'
-// function sendRequest(method, url, body = null){
-//     return fetch(url).then(response => {
-//         return response.json()
-//         .then(data => this.setState({value: data}))
-//     })
-// }
-
-// let value;
-// sendRequest('GET', requestUrl)
-
-// alert(value)
-
-// document.addEventListener('keydown', function (event) {
-//         alert(`Нажата клавиша ${event.code} (${event.key})`);
-//     });
-
-// if (typeof window !== 'undefined') {
-//     ReactDOM.render(document.addEventListener('keydown', function (event) {
-//             alert(`Нажата клавиша ${event.code} (${event.key})`);
-//         }));
-// }
-
-//eventhandler('ArrowUp')
-
-
 const Test = () => {
     const [contacts, setContacts] = useState(null);
 
+
+    const formData = new FormData();
+    formData.append("grant_type", "password");
+    formData.append("email", "user@example.com");
+    formData.append("password", "string");
+
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('https://localhost:7286/api/user/auth/test');
+            const response = await fetch('https://localhost:7286/api/user/auth/login', {
+                method: 'POST',
+                headers: {"Accept": "application/json"},
+                body: formData
+            });
             const data = await response.json();
             setContacts(data);
         }
         fetchData();
     }, []);
 
-    // function onClickfunc(){
-    //     alert('a')
+
+    // useEffect(() => {
+    //     document.addEventListener('keydown', detectKeyDown, true)
+    // }, [])
+
+    // const detectKeyDown = (e) => {
+    //     console.log("Clicked key: ", e.key)
+    //     if(e.key === 'ArrowUp'){
+    //         // console.log("Key Clicker: ArrowUp")
+    //         return(<div>aaaaaaaaaaaaaaaaaa</div>)
+    //     }
     // }
 
-    // document.addEventListener('keydown', function (event) {
-    //     alert(`Нажата клавиша ${event.code} (${event.key})`);
-    // });
 
-    // if (typeof window !== 'undefined') {
-    //     ReactDOM.render(alert(`Нажата клавиша ${event.code} (${event.key})`));
-    // }
-    useEffect(() => {
-        document.addEventListener('keydown', detectKeyDown, true)
-    }, [])
+    // var tokenKey = "accessToken";
 
-    const detectKeyDown = (e) => {
-        console.log("Clicked key: ", e.key)
-        if(e.key === 'ArrowUp'){
-            // console.log("Key Clicker: ArrowUp")
-            return(<div>aaaaaaaaaaaaaaaaaa</div>)
-        }
-    }
+
+    // async function getTokenAsync() {
+ 
+    //     // получаем данные формы и фомируем объект для отправки
+    //     const formData = new FormData();
+    //     //formData.append("grant_type", "password");
+    //     formData.append("email", "user@example.com");
+    //     formData.append("password", "string");
+
+    //     // отправляет запрос и получаем ответ
+    //     const response = await fetch("https://localhost:7286/api/user/auth/login", {
+    //         method: "POST",
+    //         headers: {"Accept": "application/json"},
+    //         body: formData
+    //     });
+    //     // получаем данные 
+    //     const data = await response.json();
+
+    //     // если запрос прошел нормально
+    //     if (response.ok === true) {
+
+    //         // изменяем содержимое и видимость блоков на странице
+    //         document.getElementById("userName").innerText = data.username;
+    //         document.getElementById("userInfo").style.display = "block";
+    //         document.getElementById("loginForm").style.display = "none";
+    //         // сохраняем в хранилище sessionStorage токен доступа
+    //         sessionStorage.setItem(tokenKey, data.access_token);
+    //         console.log(data.access_token);
+    //         console.log('a')
+    //      }
+    //     else {
+    //         // если произошла ошибка, из errorText получаем текст ошибки
+    //         console.log("Error: ", response.status, data.errorText);
+    //     }
+    // };
+    // // отправка запроса к контроллеру ValuesController
+    // async function getData(url) {
+    //     const token = sessionStorage.getItem(tokenKey);
+
+    //     const response = await fetch(url, {
+    //         method: "GET",
+    //         headers: {
+    //             "Accept": "application/json",
+    //             "Authorization": "Bearer " + token  // передача токена в заголовке
+    //         }
+    //     });
+    //     if (response.ok === true) {
+             
+    //         const data = await response.json();
+    //         alert(data)
+    //     }
+    //     else
+    //         console.log("Status: ", response.status);
+    // };
+
+    // getTokenAsync();
+
+
 
     return (
         <div>
-            {contacts && [contacts].map(({question, answer}) => (
-                <div>
-                <div className = {styles.test}>{question}</div>
-                <div className = {styles.answerfield}>
-                    <div className = {styles.answer}>{answer}</div>
-                    <div className = {styles.answer}>Ответ номер 2</div>
-                    <div className = {styles.answer}>Ответ номер 3</div>
-                    <div className = {styles.answer}>Ответ номер 4</div>
-                </div>
-                </div>
-            ))}
+            <div>
+            <div className = {styles.test}>Вопрос</div>
+            <div className = {styles.answerfield}>
+                <div className = {styles.answer}>Ответ номер 1</div>
+                <div className = {styles.answer}>Ответ номер 2</div>
+                <div className = {styles.answer}>Ответ номер 3</div>
+                <div className = {styles.answer}>Ответ номер 4</div>
+            </div>
+            </div>
             <button className = {styles.next}>Далее</button>
         </div>
     )
+
+    // return (
+    //     <div>
+    //         {contacts && [contacts].map(({question, answer}) => (
+    //             <div>
+    //             <div className = {styles.test}>{question}</div>
+    //             <div className = {styles.answerfield}>
+    //                 <div className = {styles.answer}>{answer}</div>
+    //                 <div className = {styles.answer}>Ответ номер 2</div>
+    //                 <div className = {styles.answer}>Ответ номер 3</div>
+    //                 <div className = {styles.answer}>Ответ номер 4</div>
+    //             </div>
+    //             </div>
+    //         ))}
+    //         <button className = {styles.next}>Далее</button>
+    //     </div>
+    // )
 }
 export default Test;
