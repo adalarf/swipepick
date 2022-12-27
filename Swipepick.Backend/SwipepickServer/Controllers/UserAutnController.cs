@@ -23,8 +23,8 @@ namespace SwipepickServer.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("login")]
-        public IActionResult Login(UserLogin user)
+        [HttpGet("login")]
+        public IActionResult Login([FromBody] UserLogin user)
         {
             var userDto = _user.GetUser(user);
 
@@ -38,7 +38,7 @@ namespace SwipepickServer.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Register(UserDto userDto)
+        public IActionResult Register([FromBody] UserDto userDto)
         {
             _user.AddUser(userDto);
             return Ok(userDto.Email);
