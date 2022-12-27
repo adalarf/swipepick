@@ -1,8 +1,8 @@
-const HomeFooter = () => {
+const Footer = () => {
   return (
     <footer className="main-footer">
     </footer>
   )
 }
 
-export default HomeFooter;
+export default Footer;

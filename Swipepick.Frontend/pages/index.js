@@ -1,15 +1,16 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import HomeLayout from "../components/homeLayout";
+import Layout from "../components/layout";
 import HomeMain from "../components/homeMain";
+import {Provider} from "react-redux";
+import {store} from "../reducers";
 
 
 const Index =  () => {
   return (
-    <HomeLayout>
-      <HomeMain/>
-    </HomeLayout>
+    <Provider store={store}>
+      <Layout>
+        <HomeMain/>
+      </Layout>
+    </Provider>
   )
 }
 
