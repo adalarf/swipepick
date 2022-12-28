@@ -32,7 +32,7 @@ namespace SwipepickServer.Controllers
                 return BadRequest(new { errorText = "User Not Found" });
 
             var tokenString = GenerateJwt(userDto);
-            return Ok(new { token = tokenString });
+            return Json(new { token = tokenString, userEmail = userDto.Email });
 
         }
 
