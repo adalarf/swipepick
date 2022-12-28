@@ -23,7 +23,7 @@ namespace SwipepickServer.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("login")]
+        [HttpPost("login")]
         public IActionResult Login([FromBody] UserLogin user)
         {
             var userDto = _user.GetUser(user);
@@ -42,6 +42,18 @@ namespace SwipepickServer.Controllers
         {
             _user.AddUser(userDto);
             return Ok(userDto.Email);
+        }
+
+        [HttpGet("test1")]
+        public IActionResult Test1()
+        {
+            return Ok("test: 1");   
+        }
+
+        [HttpPost("test2")]
+        public IActionResult Test2([FromBody] UserLogin user)
+        {
+            return Ok("test: 2");
         }
 
         private List<Claim> GetClaims(User user)

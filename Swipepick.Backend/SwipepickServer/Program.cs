@@ -63,15 +63,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddDbContext<UserContext>(opt => opt.UseNpgsql(settings.ConnectionString));
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("CORSPolicy", policy =>
-    {
-        policy.AllowAnyHeader()
-        .AllowAnyMethod()
-        .WithOrigins("http://localhost:3000", "https://appname.azurestaticapps.net");
-    });
-});
+builder.Services.AddCors();
 
 
 
@@ -85,8 +77,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseRouting();
+app.UseCors(builder => builder.AllowAnyOrigin());
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -95,5 +87,4 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 
-app.UseCors("CORSPolicy");
 app.Run();
