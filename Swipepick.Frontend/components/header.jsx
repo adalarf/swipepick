@@ -22,7 +22,7 @@ const Header = () => {
               <a href="#">О НАС</a>
             </li>
             <li className="site-navigation-item">
-              <Link className="authorization" href="authorization">ВОЙТИ</Link>
+              <Link className="authorization" href="login">ВОЙТИ</Link>
             </li>
           </ul>
         </nav>

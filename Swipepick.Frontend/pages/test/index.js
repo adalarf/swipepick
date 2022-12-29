@@ -84,7 +84,7 @@ const Test = () => {
     //         method: "GET",
     //         headers: {
     //             "Accept": "application/json",
-    //             "Authorization": "Bearer " + token  // передача токена в заголовке
+    //             "Login": "Bearer " + token  // передача токена в заголовке
     //         }
     //     });
     //     if (response.ok === true) {

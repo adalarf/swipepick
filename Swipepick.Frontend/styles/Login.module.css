@@ -17,3 +17,8 @@
   grid-template-columns: 350px;
   gap: 5px
 }
+
+.button_switch {
+  width: 175px;
+  height: 20px;
+}
