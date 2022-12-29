@@ -40,20 +40,13 @@ namespace SwipepickServer.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody] UserDto userDto)
         {
-            _user.AddUser(userDto);
-            return Ok(userDto.Email);
-        }
+            if (!_user.IsUserExsist(userDto.Email))
+            {
+                _user.AddUser(userDto);
+                return Json(new { userEmail = userDto.Email });
+            }
 
-        [HttpGet("test1")]
-        public IActionResult Test1()
-        {
-            return Ok("test: 1");   
-        }
-
-        [HttpPost("test2")]
-        public IActionResult Test2([FromBody] UserLogin user)
-        {
-            return Ok("test: 2");
+            return BadRequest("ERROR: Пользователь с такой почтой уже зарегестрирован");
         }
 
         private List<Claim> GetClaims(User user)

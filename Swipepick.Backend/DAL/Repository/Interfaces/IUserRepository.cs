@@ -11,5 +11,7 @@ namespace DAL.Repository.Interfaces
         void AddUser(UserDto user);
 
         void AddTest(string email, Dictionary<string, List<string>> qustions);
+
+        bool IsUserExsist(string email);
     }
 }

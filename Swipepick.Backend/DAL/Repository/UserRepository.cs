@@ -2,6 +2,7 @@
 using DAL.Entities;
 using DAL.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -14,6 +15,11 @@ namespace DAL.Repository
         public UserRepository(UserContext userContext)
         {
             _userContext = userContext;
+        }
+
+        public bool IsUserExsist(string userEmail)
+        {
+            return _userContext.Users.Any(x => x.Email == userEmail);
         }
 
         public void AddUser(UserDto user)
