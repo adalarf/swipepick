@@ -1,17 +1,14 @@
-import Layout from "../components/layout";
+import StandardLayout from "../components/standardLayout";
 import HomeMain from "../components/homeMain";
-import {Provider} from "react-redux";
-import {store} from "../reducers";
 
 
 const Index =  () => {
   return (
-    <Provider store={store}>
-      <Layout>
-        <HomeMain/>
-      </Layout>
-    </Provider>
+    <StandardLayout>
+      <HomeMain/>
+    </StandardLayout>
   )
 }
 
 export default Index;
+

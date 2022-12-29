@@ -1,7 +1,9 @@
 import Image from "next/image";
 import logo from "../public/logo.svg"
 import entrance from "../public/entrance.svg"
-const HomeHeader = () => {
+import Link from "next/link";
+
+const Header = () => {
   return (
     <header className="main-header">
       <div className="wrapper">
@@ -20,7 +22,7 @@ const HomeHeader = () => {
               <a href="#">О НАС</a>
             </li>
             <li className="site-navigation-item">
-              <a className="authorization" href="#">ВОЙТИ</a>
+              <Link className="authorization" href="authorization">ВОЙТИ</Link>
             </li>
           </ul>
         </nav>
@@ -30,4 +32,4 @@ const HomeHeader = () => {
 
 }
 
-export default HomeHeader;
+export default Header;
