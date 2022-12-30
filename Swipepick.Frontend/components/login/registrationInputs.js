@@ -1,6 +1,6 @@
 import styles from "../../styles/Login.module.css";
 import Input from "../../util/login/input";
-import {register} from "../../pages/api/register";
+import {register} from "../../api/register";
 import {useState} from "react";
 
 const RegistrationInputs = () => {
