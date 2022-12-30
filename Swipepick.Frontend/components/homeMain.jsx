@@ -7,7 +7,7 @@ const HomeMain = () => {
     <main className="main-main">
       <div className="wrapper">
         <section className="hero">
-          <Image className="img-phone-version" src={phoneVersion} Width="242" Height="500" />
+          <Image className="img-phone-version" src={phoneVersion} alt="мобильная версия картинка"/>
           <div className="main-heading-description">
             <h1 className="main-heading">Веб платформа swipepick</h1>
             <p className="main-description">Веб-сервис для создания тесов  или опросов,

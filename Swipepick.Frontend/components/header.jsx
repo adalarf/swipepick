@@ -1,6 +1,5 @@
 import Image from "next/image";
 import logo from "../public/logo.svg"
-import entrance from "../public/entrance.svg"
 import Link from "next/link";
 
 const Header = () => {
@@ -9,7 +8,7 @@ const Header = () => {
       <div className="wrapper">
         <nav className="main-nav">
           <a className="img-logo-nav" href="#">
-            <Image className="img-logo" src={logo} Width="241px" Height="48px" />
+            <Image className="img-logo" src={logo} alt="логотип"/>
           </a>
           <ul className="site-navigation">
             <li className="site-navigation-item">
