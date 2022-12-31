@@ -3,6 +3,7 @@ import logo from "../public/logo.svg"
 import Link from "next/link";
 
 const Header = () => {
+
   return (
     <header className="main-header">
       <div className="wrapper">
@@ -20,9 +21,9 @@ const Header = () => {
             <li className="site-navigation-item">
               <a href="#">О НАС</a>
             </li>
-            <li className="site-navigation-item">
+            {<li className="site-navigation-item">
               <Link className="authorization" href="login">ВОЙТИ</Link>
-            </li>
+            </li>}
           </ul>
         </nav>
       </div>
