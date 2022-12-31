@@ -3,6 +3,7 @@ import Input from "../../util/login/input";
 import {useState} from "react";
 import {login} from "../../api/login";
 import {useDispatch, useSelector} from "react-redux";
+import {logout} from "../../reducers/userReducer";
 
 const AuthorizationInputs = () => {
   const [email, setEmail] = useState("")
@@ -17,7 +18,9 @@ const AuthorizationInputs = () => {
       <Input value={password} setValue={setPassword} type="password"
              placeholder="Введите пароль" id="password" labelText="Ваш пароль" />
       <button onClick={() => dispatch(login(email, password))}>ВОЙТИ</button>
+      <button onClick={() => dispatch(logout())}>ВЫЙТИ</button>
       {isAuth && <p>Чел, ты реально крут, потому что вошел в аккаунт</p>}
+      {!isAuth && <p>Чел, ты не вошел в аккаунт</p>}
     </div>
   )
 }
