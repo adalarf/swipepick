@@ -3,6 +3,7 @@ using DAL.Repository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Security.Claims;
 
 namespace SwipepickServer.Controllers
 {
@@ -37,8 +38,8 @@ namespace SwipepickServer.Controllers
         [HttpGet("get-email")]
         public IActionResult GetEmail()
         {
-            var email = User.Claims.Select(x => x.Value).ToList()[0];
-            return Json(new { email });
+            var email = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+            return Json(new { email = email.Value });
         }
     }
 }
