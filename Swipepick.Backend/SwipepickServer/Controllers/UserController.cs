@@ -32,5 +32,13 @@ namespace SwipepickServer.Controllers
             var tests = _user.GetTests(email);
             return Ok(tests);
         }
+
+        [Authorize]
+        [HttpGet("get-email")]
+        public IActionResult GetEmail()
+        {
+            var email = User.Claims.Select(x => x.Value).ToList()[0];
+            return Json(new { email });
+        }
     }
 }
