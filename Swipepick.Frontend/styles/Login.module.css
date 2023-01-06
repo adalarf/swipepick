@@ -1,24 +1,92 @@
 .background {
   background-color: #8CACD0;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 30px 0;
 }
 
 .login_form {
-  background-color: #8CACD0;
+  background-color: #FFFFFFFF;
+  border-radius: 14px;
+  margin-top: 10px;
 }
 
 .button_wrapper {
-  background-color: #8CACD0;
+  background-color: #DDEAEE;
+  border-radius: 14px;
 }
 
 .registration_inputs {
-
   display: grid;
-  grid-template-columns: 350px;
-  gap: 5px
+  grid-template-columns: 450px;
+  gap: 25px;
+  margin-top: 25px;
 }
 
 .button_switch {
-  width: 175px;
-  height: 20px;
+  background-color: #DDEAEE;
+  font-family: 'Oswald';
+  color: #42445A;
+  font-weight: 700;
+  font-size: 22px;
+  border-radius: 14px;
+  width: 225px;
+  height: 64px;
+
+}
+.button_switch_activated {
+  background-color: #DDEAEE;
+  font-family: 'Oswald';
+  color: #42445A;
+  font-weight: 700;
+  font-size: 22px;
+  border-radius: 14px;
+  width: 225px;
+  height: 70px;
+  border: 10px solid #42445A;
+}
+
+.send_button {
+  background-color: #42445A;
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 20px;
+  color: #DDEAEE;
+  border-radius: 14px;
+  height: 54px;
+}
+
+.send_button:hover {
+  background-color: #DDEAEE;
+  color: #42445A;
+}
+
+.input_wrapper {
+  display: grid;
+  font-size: 20px;
+  grid-template-columns: 350px;
+  margin: auto;
+}
+
+.form_wrapper {
+  margin: auto;
+  width: 450px;
+}
+
+.logo {
+  margin: 106.5px;
+}
+
+.input {
+  background-color: #DDEAEE;
+  font-family: 'Oswald';
+  font-size: 18px;
+  color: #42445A;
+  height: 54px;
+  border-radius: 14px;
+  border: 3px solid #42445A;
+  padding-left: 10px;
+}
+
+.input:focus {
+  border-color: #8CACD0;
 }

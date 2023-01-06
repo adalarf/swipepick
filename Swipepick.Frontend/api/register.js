@@ -9,5 +9,5 @@ export const register = async (email, password, name, lastname) => {
     lastname
   })
     .then((response)  => console.log(response))
-    .catch((err) => console.log("ты уже зареган"))
+    .catch((err) => alert(err))
 }

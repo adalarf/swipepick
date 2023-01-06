@@ -1,8 +1,10 @@
 import styles from "../../styles/Login.module.css";
 
-const ButtonSwitch = ({formType, setterFormType, text}) => {
+const ButtonSwitch = ({formTypeValue, setterFormType, text, formType}) => {
   return (
-    <button className={styles.button_switch} onClick={(event)=> setterFormType(formType)}>{text}</button>
+    <button className={formTypeValue === formType ?
+      styles.button_switch_activated : styles.button_switch}
+            onClick={() => setterFormType(formTypeValue)}>{text}</button>
   )
 }
 

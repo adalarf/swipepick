@@ -7,6 +7,16 @@ body {
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+}
+
+input {
+  border: none;
+  outline:none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -61,10 +71,6 @@ ol {
   align-items: center;
   justify-content: space-between;
   margin: 0 25px;
-
-}
-.img-logo-nav {
-  width: 241px;
   height: 48px;
 }
 

@@ -49,7 +49,7 @@ const HomeMain = () => {
         <section className="manual">
           <h2 className="manual-heading">Создать тест или опрос? - Легко!</h2>
           <div className="manual-flex-box">
-            <Image className="img-video" src={video} />
+            <Image className="img-video" src={video} alt="затычка видео"/>
             <ol className="manual-list">
               <li className="manual-list-item">
                 <p>Зарегистрируйтесь на плаформе</p>
