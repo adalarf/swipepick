@@ -28,9 +28,10 @@ namespace SwipepickServer.Controllers
 
         [HttpGet("get-tests")]
         [Authorize]
-        public IActionResult Test([FromHeader] string email)
+        public IActionResult Test()
         {
-            var tests = _user.GetTests(email);
+            var email = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+            var tests = _user.GetTests(email.Value);
             return Ok(tests);
         }
 
