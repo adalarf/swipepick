@@ -1,4 +1,5 @@
-﻿using DAL.Entities;
+﻿using DAL.Entities.Dal;
+using DAL.Entities.Dto;
 using DAL.Repository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

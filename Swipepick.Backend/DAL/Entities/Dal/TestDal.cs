@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace DAL.Entities
+namespace DAL.Entities.Dal
 {
     [Table("Test")]
     [Index(nameof(Url), IsUnique = true)]

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DAL.Entities
+namespace DAL.Entities.Dal
 {
     [Table("User")]
     [Index(nameof(Email), IsUnique = true)]

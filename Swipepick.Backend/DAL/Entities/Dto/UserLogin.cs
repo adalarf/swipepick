@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DAL.Entities
+namespace DAL.Entities.Dto
 {
     /// <summary>
     /// Данный класс используется для входа на сайт

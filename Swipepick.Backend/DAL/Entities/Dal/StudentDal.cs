@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DAL.Entities
+namespace DAL.Entities.Dal
 {
     [Table("Student")]
     public class StudentDal

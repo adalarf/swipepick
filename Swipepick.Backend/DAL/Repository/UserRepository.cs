@@ -1,5 +1,6 @@
 ﻿using DAL.AppDBContext;
-using DAL.Entities;
+using DAL.Entities.Dal;
+using DAL.Entities.Dto;
 using DAL.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;

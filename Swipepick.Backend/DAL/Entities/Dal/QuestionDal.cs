@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace DAL.Entities
+namespace DAL.Entities.Dal
 {
     [Table("Test_question")]
     public class QuestionDal

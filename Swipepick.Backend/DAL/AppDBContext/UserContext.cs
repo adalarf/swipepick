@@ -1,4 +1,4 @@
-﻿using DAL.Entities;
+﻿using DAL.Entities.Dal;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL.AppDBContext
