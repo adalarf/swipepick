@@ -21,25 +21,7 @@ namespace SwipepickServer.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("DAL.Entities.Dal.CorrectAnswer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Answer")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("TestId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CorrectAnswers");
-                });
-
-            modelBuilder.Entity("DAL.Entities.Dal.QuestionDal", b =>
+            modelBuilder.Entity("DAL.Entities.QuestionDal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -63,7 +45,7 @@ namespace SwipepickServer.Migrations
                     b.ToTable("Test_question");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.StudentAnswerDal", b =>
+            modelBuilder.Entity("DAL.Entities.StudentAnswerDal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -101,7 +83,7 @@ namespace SwipepickServer.Migrations
                     b.ToTable("Student_Answer");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.StudentDal", b =>
+            modelBuilder.Entity("DAL.Entities.StudentDal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -136,7 +118,7 @@ namespace SwipepickServer.Migrations
                     b.ToTable("Student");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.TestDal", b =>
+            modelBuilder.Entity("DAL.Entities.TestDal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -166,7 +148,7 @@ namespace SwipepickServer.Migrations
                     b.ToTable("Test");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.User", b =>
+            modelBuilder.Entity("DAL.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -207,26 +189,15 @@ namespace SwipepickServer.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.CorrectAnswer", b =>
+            modelBuilder.Entity("DAL.Entities.QuestionDal", b =>
                 {
-                    b.HasOne("DAL.Entities.Dal.TestDal", "Test")
-                        .WithMany("CorrectAnswers")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Test");
-                });
-
-            modelBuilder.Entity("DAL.Entities.Dal.QuestionDal", b =>
-                {
-                    b.HasOne("DAL.Entities.Dal.TestDal", "Test")
+                    b.HasOne("DAL.Entities.TestDal", "Test")
                         .WithMany("Questions")
                         .HasForeignKey("TestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("DAL.Entities.Dal.AnswerDal", "Answers", b1 =>
+                    b.OwnsOne("DAL.Entities.AnswerDal", "Answers", b1 =>
                         {
                             b1.Property<int>("QuestionId")
                                 .HasColumnType("integer")
@@ -280,9 +251,9 @@ namespace SwipepickServer.Migrations
                     b.Navigation("Test");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.StudentAnswerDal", b =>
+            modelBuilder.Entity("DAL.Entities.StudentAnswerDal", b =>
                 {
-                    b.HasOne("DAL.Entities.Dal.StudentDal", "Student")
+                    b.HasOne("DAL.Entities.StudentDal", "Student")
                         .WithMany("StudentAnswers")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -291,15 +262,15 @@ namespace SwipepickServer.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.StudentDal", b =>
+            modelBuilder.Entity("DAL.Entities.StudentDal", b =>
                 {
-                    b.HasOne("DAL.Entities.Dal.TestDal", "Test")
+                    b.HasOne("DAL.Entities.TestDal", "Test")
                         .WithMany("Students")
                         .HasForeignKey("TestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DAL.Entities.Dal.User", "User")
+                    b.HasOne("DAL.Entities.User", "User")
                         .WithMany("Students")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -310,9 +281,9 @@ namespace SwipepickServer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.TestDal", b =>
+            modelBuilder.Entity("DAL.Entities.TestDal", b =>
                 {
-                    b.HasOne("DAL.Entities.Dal.User", "User")
+                    b.HasOne("DAL.Entities.User", "User")
                         .WithMany("Tests")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -321,21 +292,19 @@ namespace SwipepickServer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.StudentDal", b =>
+            modelBuilder.Entity("DAL.Entities.StudentDal", b =>
                 {
                     b.Navigation("StudentAnswers");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.TestDal", b =>
+            modelBuilder.Entity("DAL.Entities.TestDal", b =>
                 {
-                    b.Navigation("CorrectAnswers");
-
                     b.Navigation("Questions");
 
                     b.Navigation("Students");
                 });
 
-            modelBuilder.Entity("DAL.Entities.Dal.User", b =>
+            modelBuilder.Entity("DAL.Entities.User", b =>
                 {
                     b.Navigation("Students");
 

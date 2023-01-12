@@ -58,7 +58,6 @@ namespace DAL.Repository
             var user = _userContext.Users.FirstOrDefault(x => x.Email == email);
             var testGuid = Guid.NewGuid().ToString().Substring(0, 4);
             var questions = new List<QuestionDal>();
-            var correctAns = new List<CorrectAnswer>();
             var test = new TestDal() { Url = testGuid, User = user, UserId = user.Id, Students = null };
 
             foreach (var question in qustions.Keys)
@@ -84,14 +83,10 @@ namespace DAL.Repository
                     ThirdAnswer = qustions[question][2],
                     FourhAnswer = qustions[question][3]
                 };
-
-                var correctAnsw = new CorrectAnswer() { TestId = test.Id, Answer = answs.FirstAnswer };
-                correctAns.Add(correctAnsw);
                 newQuestion.Answers = answs;
                 questions.Add(newQuestion);
             }
             test.Questions = questions;
-            test.CorrectAnswers = correctAns;
             _userContext.Tests.Add(test);
             _userContext.SaveChanges();
         }
@@ -99,10 +94,7 @@ namespace DAL.Repository
         public List<TestDal> GetTests(string email)
         {
             var user = _userContext.Users.FirstOrDefault(x => x.Email == email);
-            var tests = _userContext.Tests
-                .Where(x => x.UserId == user.Id)
-                .Include(x => x.Questions)
-                .Include(x => x.CorrectAnswers);
+            var tests = _userContext.Tests.Where(x => x.UserId == user.Id).Include(x => x.Questions);
 
             return tests.ToList();
         }

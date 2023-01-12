@@ -20,10 +20,9 @@ namespace SwipepickServer.Controllers
 
         [Authorize]
         [HttpPost("create-test")]
-        public IActionResult CreateTest(Dictionary<string, List<string>> questions)
+        public IActionResult CreateTest([FromHeader] string email, Dictionary<string, List<string>> questions)
         {
-            var email = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
-            _user.AddTest(email.Value, questions);
+            _user.AddTest(email, questions);
             return Ok(email);
         }
 

@@ -27,8 +27,5 @@ namespace DAL.Entities.Dal
         public User User { get; init; }
 
         public List<StudentDal> Students { get; set; }
-
-        [JsonIgnore]
-        public List<CorrectAnswer> CorrectAnswers { get; set; }
     }
 }
