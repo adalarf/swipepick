@@ -2,6 +2,7 @@
 using DAL.AppDBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace SwipepickServer.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20230112210825_QueIdColumnInQuestion")]
+    partial class QueIdColumnInQuestion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -226,9 +229,6 @@ namespace SwipepickServer.Migrations
                             b1.Property<int>("Id")
                                 .HasColumnType("integer")
                                 .HasAnnotation("Relational:JsonPropertyName", "answer_id");
-
-                            b1.Property<int>("QueId")
-                                .HasColumnType("integer");
 
                             b1.Property<string>("SecondAnswer")
                                 .IsRequired()

@@ -9,6 +9,8 @@ namespace DAL.Entities.Dal
         [JsonPropertyName("qustion_id")]
         public int Id { get; set; }
 
+        public int QueId { get; set; }
+
         public int TestId { get; set; }
 
         [JsonIgnore]

@@ -63,12 +63,15 @@ namespace DAL.Repository
             foreach (var question in testDto.Questions)
             {
                 var answerId = new Random().Next(50, 20000);
+                var questionId = new Random().Next(1, 200000);
+
                 var newQuestion = new QuestionDal()
                 {
                     Question = question.Question,
-                    Id = question.Id,
+                    Id = questionId,
                     Test = test,
-                    TestId = test.Id
+                    TestId = test.Id,
+                    QueId = question.QueId
                 };
                 
                 var answs = new AnswerDal()
@@ -76,12 +79,13 @@ namespace DAL.Repository
                     Id = answerId,
                     TestId = test.Id,
                     Question = newQuestion,
-                    QuestionId = newQuestion.Id,
+                    QuestionId = questionId,
                     FirstAnswer = question.Answers.FirstAnswer,
                     SecondAnswer = question.Answers.SecondAnswer,
                     ThirdAnswer = question.Answers.ThirdAnswer,
                     FourhAnswer = question.Answers.FourhAnswer,
-                    CorrectAnswer = question.Answers.CorrectAnswer
+                    CorrectAnswer = question.Answers.CorrectAnswer,
+                    QueId = question.QueId
                 };
 
                 newQuestion.Answers = answs;

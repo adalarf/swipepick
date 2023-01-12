@@ -8,7 +8,7 @@ namespace DAL.Entities.Dto
 {
     public class QuestionDto
     {
-        public int Id { get; set; }
+        public int QueId { get; set; }
         public string Question { get; set; }
         public AnswerDto Answers { get; set; }
     }

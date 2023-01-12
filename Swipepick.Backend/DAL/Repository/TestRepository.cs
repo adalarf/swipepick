@@ -29,9 +29,10 @@ namespace DAL.Repository
                     SecondAnswer = queAnswers.SecondAnswer,
                     ThirdAnswer = queAnswers.ThirdAnswer,
                     FourhAnswer = queAnswers.FourhAnswer,
-                    CorrectAnswer = queAnswers.CorrectAnswer
+                    CorrectAnswer = queAnswers.CorrectAnswer,
+                    QueId = que.QueId
                 };
-                var queDto = new QuestionDto() { Answers = answersDto, Question = que.Question, Id = que.Id };
+                var queDto = new QuestionDto() { Answers = answersDto, Question = que.Question, QueId = que.QueId };
                 queDtos.Add(queDto);
             }
             var result = new TestDto() { Questions = queDtos };

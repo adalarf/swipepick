@@ -22,6 +22,8 @@ namespace DAL.Entities.Dto
         [JsonPropertyName("answer_4")]
         public string FourhAnswer { get; init; }
 
+        public int QueId { get; set; }
+
         public int CorrectAnswer { get; set; }
     }
 }
