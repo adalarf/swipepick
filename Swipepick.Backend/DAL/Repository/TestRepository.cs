@@ -19,7 +19,22 @@ namespace DAL.Repository
             var test = _userContext.Tests.Where(x => x.Url == uri).Include(x => x.Questions).FirstOrDefault();
             if (test == null)
                 return null;
-            var result = new TestDto() { Questions = test.Questions };
+            var queDtos = new List<QuestionDto>();
+            foreach (var que in test.Questions)
+            {
+                var queAnswers = que.Answers;
+                var answersDto = new AnswerDto()
+                {
+                    FirstAnswer = queAnswers.FirstAnswer,
+                    SecondAnswer = queAnswers.SecondAnswer,
+                    ThirdAnswer = queAnswers.ThirdAnswer,
+                    FourhAnswer = queAnswers.FourhAnswer,
+                    CorrectAnswer = queAnswers.CorrectAnswer
+                };
+                var queDto = new QuestionDto() { Answers = answersDto, Question = que.Question, Id = que.Id };
+                queDtos.Add(queDto);
+            }
+            var result = new TestDto() { Questions = queDtos };
             return result;
         }
     }

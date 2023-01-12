@@ -53,36 +53,37 @@ namespace DAL.Repository
             return exsitingUser;
         }
 
-        public void AddTest(string email, Dictionary<string, List<string>> qustions)
+        public void AddTest(string email, TestDto testDto)
         {
             var user = _userContext.Users.FirstOrDefault(x => x.Email == email);
             var testGuid = Guid.NewGuid().ToString().Substring(0, 4);
             var questions = new List<QuestionDal>();
             var test = new TestDal() { Url = testGuid, User = user, UserId = user.Id, Students = null };
 
-            foreach (var question in qustions.Keys)
+            foreach (var question in testDto.Questions)
             {
-                var questionId = new Random().Next(3, 10000);
                 var answerId = new Random().Next(50, 20000);
                 var newQuestion = new QuestionDal()
                 {
-                    Question = question,
-                    Id = questionId,
+                    Question = question.Question,
+                    Id = question.Id,
                     Test = test,
                     TestId = test.Id
                 };
-
+                
                 var answs = new AnswerDal()
                 {
                     Id = answerId,
                     TestId = test.Id,
                     Question = newQuestion,
                     QuestionId = newQuestion.Id,
-                    FirstAnswer = qustions[question][0],
-                    SecondAnswer = qustions[question][1],
-                    ThirdAnswer = qustions[question][2],
-                    FourhAnswer = qustions[question][3]
+                    FirstAnswer = question.Answers.FirstAnswer,
+                    SecondAnswer = question.Answers.SecondAnswer,
+                    ThirdAnswer = question.Answers.ThirdAnswer,
+                    FourhAnswer = question.Answers.FourhAnswer,
+                    CorrectAnswer = question.Answers.CorrectAnswer
                 };
+
                 newQuestion.Answers = answs;
                 questions.Add(newQuestion);
             }

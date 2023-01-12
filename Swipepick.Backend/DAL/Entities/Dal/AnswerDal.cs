@@ -34,5 +34,9 @@ namespace DAL.Entities.Dal
         [JsonPropertyName("answer_4")]
         [Column("answer_4")]
         public string FourhAnswer { get; init; }
+
+        [JsonPropertyName("correct")]
+        [Column("correct_ans")]
+        public int CorrectAnswer { get; set; }
     }
 }

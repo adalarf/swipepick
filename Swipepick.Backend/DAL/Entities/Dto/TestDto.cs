@@ -9,6 +9,6 @@ namespace DAL.Entities.Dto
 {
     public class TestDto
     {
-        public List<QuestionDal> Questions { get; set; }
+        public List<QuestionDto> Questions { get; set; }
     }
 }

@@ -20,9 +20,22 @@ namespace SwipepickServer.Controllers
         public IActionResult GetTest([FromRoute] string uri)
         {
             var test = _testRepository.GetTest(uri);
+            var quest = test.Questions
+                .Select(x => new
+                {
+                    QueId = x.Id,
+                    Question = x.Question,
+                    Options = new[] 
+                    {
+                        x.Answers.FirstAnswer,
+                        x.Answers.SecondAnswer,
+                        x.Answers.ThirdAnswer,
+                        x.Answers.FourhAnswer
+                    }
+                }).OrderBy(y => Guid.NewGuid());
             if (test == null)
                 return BadRequest("Test not found");
-            return Json(test);
+            return Json(quest);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DAL.Entities;
+using DAL.Entities.Dto;
 using DAL.Repository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +21,11 @@ namespace SwipepickServer.Controllers
 
         [Authorize]
         [HttpPost("create-test")]
-        public IActionResult CreateTest([FromHeader] string email, Dictionary<string, List<string>> questions)
+        public IActionResult CreateTest(TestDto test)
         {
-            _user.AddTest(email, questions);
-            return Ok(email);
+            var email = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+            _user.AddTest(email.Value, test);
+            return Ok(email.Value);
         }
 
         [Authorize]
