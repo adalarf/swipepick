@@ -18,6 +18,7 @@ namespace DAL.AppDBContext
         public DbSet<StudentDal> Students { get; set; }
 
         public DbSet<QuestionDal> Questions { get; set; }
+        public DbSet<CorrectAnswer> CorrectAnswers { get; set; }
 
         public UserContext(DalSetting setting)
         {
@@ -32,6 +33,16 @@ namespace DAL.AppDBContext
                 .HasOne(owner => owner.User)
                 .WithMany(user => user.Tests)
                 .HasForeignKey(fk => fk.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CorrectAnswer>()
+                .Property(c => c.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<CorrectAnswer>()
+                .HasOne(o => o.Test)
+                .WithMany(o => o.CorrectAnswers)
+                .HasForeignKey(o => o.Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<QuestionDal>()
