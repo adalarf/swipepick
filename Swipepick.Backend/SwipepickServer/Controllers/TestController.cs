@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace SwipepickServer.Controllers
 {
     [ApiController]
-    [Route("api/swipepick/test")]
+    [Route("swipepick/test")]
     public class TestController : Controller
     {
         private readonly ITestRepository _testRepository;
@@ -16,10 +16,10 @@ namespace SwipepickServer.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet]
-        public IActionResult GetTest([FromQuery] string testUri)
+        [HttpGet("{uri}")]
+        public IActionResult GetTest([FromRoute] string uri)
         {
-            var test = _testRepository.GetTest(testUri);
+            var test = _testRepository.GetTest(uri);
             if (test == null)
                 return BadRequest("Test not found");
             return Json(test);
