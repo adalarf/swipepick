@@ -49,18 +49,12 @@ namespace SwipepickServer.Controllers
         [HttpGet("test-urls")]
         public IActionResult GetTestsUrls()
         {
-            var host = HttpContext.Request.Host;
-            var sheme = HttpContext.Request.Scheme;
-            var port = HttpContext.Request;
-
             var email = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
             var urls = new List<string>();
             var tests = _user.GetTests(email.Value);
             foreach (var test in tests)
             {
-                var uri = test.Url;
-                var url = new UriBuilder(sheme, host.Host, 7286, $"swipepick/test/{uri}").ToString();
-                urls.Add(url);
+                urls.Add(test.Url);
             }
             return Ok(urls);
         }
