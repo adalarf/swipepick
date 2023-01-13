@@ -7,7 +7,7 @@ using System;
 namespace SwipepickServer.Controllers
 {
     [ApiController]
-    [Route("swipepick/test")]
+    [Route("api/swipepick/test")]
     public class TestController : Controller
     {
         private readonly ITestRepository _testRepository;
