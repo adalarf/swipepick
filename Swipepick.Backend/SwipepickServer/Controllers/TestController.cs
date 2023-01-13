@@ -45,10 +45,16 @@ namespace SwipepickServer.Controllers
         public IActionResult SubmitAnswers([FromBody] StudentAnswerDto studentAnswer)
         {
             var test = _testRepository.GetTest(studentAnswer.TestUri);
+            var count = GetTestResult(test, studentAnswer);
+            return Ok(count);
+        }
+
+        private int GetTestResult(TestDto test, StudentAnswerDto studentAnswer)
+        {
             var currectAnsw = studentAnswer.SelectedAnsws.GroupBy(x => x.QueId);
             var questions = test.Questions.Select(x => x).ToList();
             var count = 0;
-            var correctAnsw = questions.Select(x => x.Answers).GroupBy(x => x.QueId); 
+            var correctAnsw = questions.Select(x => x.Answers).GroupBy(x => x.QueId);
             foreach (var t in currectAnsw)
             {
                 var group = correctAnsw.Single(g => g.Key == t.Key);
@@ -60,7 +66,8 @@ namespace SwipepickServer.Controllers
                     count++;
                 }
             }
-            return Ok(count);
+
+            return count;
         }
     }
 }
