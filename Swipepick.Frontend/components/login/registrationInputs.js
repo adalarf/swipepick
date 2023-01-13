@@ -19,7 +19,7 @@ const RegistrationInputs = () => {
              id="name" labelText="Ваше имя" />
       <Input value={lastname} setValue={setLastname} type="text"
              id="lastname" labelText="Ваша фамилия" />
-      <button className={styles.send_button} onClick={() =>
+      <button type="submit" className={styles.send_button} onClick={() =>
         register(email, password, name, lastname)}>ЗАРЕГИСТРИРОВАТЬСЯ</button>
     </div>
   )

@@ -18,7 +18,7 @@ const AuthorizationInputs = () => {
              id="email" labelText="Ваш E-mail" />
       <Input value={password} setValue={setPassword} type="password"
              id="password" labelText="Ваш пароль" />
-      <button className={styles.send_button} onClick={() =>
+      <button type="submit" className={styles.send_button} onClick={() =>
         dispatch(login(email, password, router))}>ВОЙТИ</button>
     </div>
   )

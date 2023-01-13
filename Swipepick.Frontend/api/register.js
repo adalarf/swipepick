@@ -8,8 +8,7 @@ export const register = async (email, password, name, lastname) => {
       password,
       name,
       lastname
-    })
-    alert(response)
+    });
   } catch (err) {
     alert(err)
   }

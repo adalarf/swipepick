@@ -7,11 +7,9 @@ export const autoLogin =  () => {
     try {
       const response = await axios.get(`https://localhost:7286/api/swipepick/user/get-email`,
         {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}}
-      )
-      console.log(response)
-      dispatch(setUser(response.data.email))
+      );
+      dispatch(setUser(response.data.email));
     } catch (err) {
-      console.log(err)
 
     }
   }

@@ -3,6 +3,7 @@ import logo from "../public/logo.svg"
 import Link from "next/link";
 import {useSelector} from "react-redux";
 import Logo from "../util/logo";
+import {getTests} from "../api/getTests";
 
 const Header = () => {
   const isAuth = useSelector(state => state.user.isAuth);
@@ -17,7 +18,7 @@ const Header = () => {
               <a href="#">СОЗДАТЬ</a>
             </li>
             <li className="site-navigation-item">
-              <a href="#">ПРОЙТИ</a>
+              <button onClick={() => getTests()}>ПРОЙТИ</button>
             </li>
             <li className="site-navigation-item">
               <a href="#">О НАС</a>
