@@ -22,6 +22,10 @@ namespace SwipepickServer.Controllers
         public IActionResult GetTest([FromRoute] string uri)
         {
             var test = _testRepository.GetTest(uri);
+
+            if (test == null)
+                return BadRequest("Test not found");
+
             var quest = test.Questions
                 .Select(x => new
                 {
@@ -35,8 +39,7 @@ namespace SwipepickServer.Controllers
                         x.Answers.FourhAnswer
                     }
                 }).OrderBy(y => Guid.NewGuid());
-            if (test == null)
-                return BadRequest("Test not found");
+            
             return Json(quest);
         }
 
