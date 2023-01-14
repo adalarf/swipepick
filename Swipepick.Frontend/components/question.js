@@ -1,6 +1,6 @@
 import axios from "axios";
 import {submitAnswers} from "../api/submitAnsvers";
-
+import styles from "../styles/Test.module.css"
 
 const Question = ({ data, testId, numberOfQuestions, number, setNumber, setIsEnd, responses, setResult }) => {
   const questionId = data.queId
@@ -27,10 +27,14 @@ const Question = ({ data, testId, numberOfQuestions, number, setNumber, setIsEnd
   }
   return (
     <div>
-      <p>{indicativeNumber}/{numberOfQuestions}</p>
-      <div>{question}</div>
-      <div>
-        {options.map((option) => <button onClick={() => indicativeNumber === numberOfQuestions ? saveEndUserResponse(option) : saveUserResponse(option)}>{option}</button>)}
+      <p className={styles.number}>{indicativeNumber}/{numberOfQuestions}</p>
+      <div className={styles.wrapper}>
+        <div className={styles.question}>{question}</div>
+        <div className={styles.responses}>
+          {options.map((option) => <button className={styles.response} onClick={() =>
+            indicativeNumber === numberOfQuestions ? saveEndUserResponse(option) :
+              saveUserResponse(option)}>{option}</button>)}
+        </div>
       </div>
     </div>
   )

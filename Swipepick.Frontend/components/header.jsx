@@ -18,7 +18,7 @@ const Header = () => {
               <a href="#">СОЗДАТЬ</a>
             </li>
             <li className="site-navigation-item">
-              <button onClick={() => getTests()}>ПРОЙТИ</button>
+              <a href="#">ПОРОЙТИ</a>
             </li>
             <li className="site-navigation-item">
               <a href="#">О НАС</a>

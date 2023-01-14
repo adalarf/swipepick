@@ -1,0 +1,99 @@
+.background {
+  background-color: #8CACD0;
+  min-height: 100vh;
+  padding: 130px 0;
+}
+
+.wrapper {
+  margin: auto;
+  width: 650px;
+}
+
+.question {
+  background-color: white;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 36px;
+  height: 180px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 45px;
+  border-top: 30px solid;
+}
+
+.responses {
+  display: grid;
+  grid-template-columns: 320px 320px;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+
+.response {
+  background-color: white;
+  font-family: 'Oswald';
+  color: #42445A;
+  font-weight: 700;
+  font-size: 24px;
+  border-radius: 14px;
+  width: 320px;
+  height: 120px;
+}
+
+.response:hover {
+  background-color: #DDEAEE;
+}
+
+.number {
+  font-weight: 700;
+  font-size: 36px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: 15px;
+  margin-right: 25px;
+}
+
+.result_wrapper {
+  background-color: white;
+  font-weight: 700;
+  font-size: 36px;
+  margin: auto;
+  width: 450px;
+  height: 450px;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 450px;
+  gap: 111px;
+}
+
+.text {
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 56px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.result {
+  margin-top: 60px;
+  font-size: 82px;
+}
+
+.button_finish {
+  background-color: #42445A;
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 28px;
+  color: #DDEAEE;
+  border-radius: 14px;
+  height: 60px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 8px;
+}
+
+.button_finish:hover {
+  background-color: #DDEAEE;
+  color: #42445A;
+}
