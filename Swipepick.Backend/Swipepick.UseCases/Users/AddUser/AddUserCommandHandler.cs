@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using DAL.AppDBContext;
 using MediatR;
+using Swipepick.DataAccess.AppDBContext;
 using Swipepick.Domain;
 using System.Security.Cryptography;
 using System.Text;

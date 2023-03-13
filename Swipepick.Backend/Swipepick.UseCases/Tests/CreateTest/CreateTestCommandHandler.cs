@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using DAL.AppDBContext;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Swipepick.DataAccess.AppDBContext;
 using Swipepick.Domain;
 
 namespace Swipepick.UseCases.Tests.CreateTest;

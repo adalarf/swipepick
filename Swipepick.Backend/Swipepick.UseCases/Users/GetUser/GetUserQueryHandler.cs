@@ -1,8 +1,8 @@
-﻿using DAL.AppDBContext;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Swipepick.DataAccess.AppDBContext;
 using Swipepick.Domain;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

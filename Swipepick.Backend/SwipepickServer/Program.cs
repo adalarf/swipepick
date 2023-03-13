@@ -1,4 +1,3 @@
-using DAL.AppDBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -7,6 +6,7 @@ using System.Text;
 using System.Reflection;
 using Swipepick.UseCases;
 using Swipepick.UseCases.Tests.CreateTest;
+using Swipepick.DataAccess.AppDBContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
