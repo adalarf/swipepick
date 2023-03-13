@@ -1,9 +1,9 @@
-﻿using DAL.Entities.Dto;
+﻿//using DAL.Entities.Dto;
 
-namespace DAL.Repository.Interfaces
-{
-    public interface ITestRepository
-    {
-        TestDto GetTest(string uri);
-    }
-}
+//namespace DAL.Repository.Interfaces
+//{
+//    public interface ITestRepository
+//    {
+//        TestDto GetTest(string uri);
+//    }
+//}

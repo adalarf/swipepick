@@ -2,10 +2,11 @@ using DAL.AppDBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using DAL.Repository.Interfaces;
-using DAL.Repository;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using System.Reflection;
+using Swipepick.UseCases;
+using Swipepick.UseCases.Tests.CreateTest;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,13 +56,14 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-
+builder.Services.AddAutoMapper(cfg => cfg.AddMaps(Assembly.GetAssembly(typeof(TestMappingProfile))));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetAssembly(typeof(CreateTestCommand))));
 var settings = new DalSetting(builder.Configuration);
 builder.Services.AddTransient(_ => settings);
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddTransient<ITestRepository, TestRepository>();
+//builder.Services.AddScoped<IUserRepository, UserRepository>();
+//builder.Services.AddTransient<ITestRepository, TestRepository>();
 
-builder.Services.AddDbContext<UserContext>(opt => opt.UseNpgsql(settings.ConnectionString));
+builder.Services.AddDbContext<ApplicationDbContext>(opt => opt.UseNpgsql(settings.ConnectionString));
 
 builder.Services.AddCors();
 

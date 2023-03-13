@@ -2,10 +2,10 @@
 
 public class DalSetting
 {
-    public string ConnectionString { get; }
+    public string ConnectionString { get; private set; }
 
     public DalSetting(IConfiguration configuration)
     {
-        ConnectionString = configuration.GetSection("Dal").GetValue<string>("ConnectionString");
+        ConnectionString = configuration.GetSection("Dal").GetValue<string>("TestConnection");
     }
 }

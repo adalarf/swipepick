@@ -5,9 +5,13 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipepickServer", "SwipepickServer.csproj", "{9F1ACA9E-6326-48E2-BE99-BAB86E6506FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "..\DAL\DAL.csproj", "{B4F8B76E-78CD-4006-A243-519E06320BB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swipepick.DataAccess", "..\DAL\Swipepick.DataAccess.csproj", "{B4F8B76E-78CD-4006-A243-519E06320BB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "..\Core\Core.csproj", "{E4311348-EC5B-49B9-AE40-3B9E0BFDEB48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swipepick.UseCases", "..\Swipepick.UseCases\Swipepick.UseCases.csproj", "{95ACF4E3-AEC6-4C1D-AA27-BD3AA8875DB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swipepick.Domain", "..\Swipepick.Domain\Swipepick.Domain.csproj", "{C37BEB26-AEC6-462C-9AB5-9DDC5538830B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swipepick.DomainServices", "..\Swipepick.DomainServices\Swipepick.DomainServices.csproj", "{BD3C7CDD-B722-4BC8-BEE2-489CCE18508B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +27,18 @@ Global
 		{B4F8B76E-78CD-4006-A243-519E06320BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4F8B76E-78CD-4006-A243-519E06320BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4F8B76E-78CD-4006-A243-519E06320BB1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4311348-EC5B-49B9-AE40-3B9E0BFDEB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4311348-EC5B-49B9-AE40-3B9E0BFDEB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4311348-EC5B-49B9-AE40-3B9E0BFDEB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4311348-EC5B-49B9-AE40-3B9E0BFDEB48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95ACF4E3-AEC6-4C1D-AA27-BD3AA8875DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95ACF4E3-AEC6-4C1D-AA27-BD3AA8875DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95ACF4E3-AEC6-4C1D-AA27-BD3AA8875DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95ACF4E3-AEC6-4C1D-AA27-BD3AA8875DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C37BEB26-AEC6-462C-9AB5-9DDC5538830B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C37BEB26-AEC6-462C-9AB5-9DDC5538830B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C37BEB26-AEC6-462C-9AB5-9DDC5538830B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C37BEB26-AEC6-462C-9AB5-9DDC5538830B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3C7CDD-B722-4BC8-BEE2-489CCE18508B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3C7CDD-B722-4BC8-BEE2-489CCE18508B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3C7CDD-B722-4BC8-BEE2-489CCE18508B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3C7CDD-B722-4BC8-BEE2-489CCE18508B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
