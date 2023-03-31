@@ -28,7 +28,9 @@ const Profile = () => {
         <div className={styles.tests}>тесты</div>
         <div className={styles.polls}>опросы</div>
       </div>
-      <div className={styles.plus}>+</div>
+      <div className={styles.plus_block}>
+        <div className={styles.plus}>+</div>
+      </div>
       <div className={styles.answer_types}>
         <div className={styles.answer_type}>верные</div>
         <div className={styles.answer_type}>ошибки</div>
