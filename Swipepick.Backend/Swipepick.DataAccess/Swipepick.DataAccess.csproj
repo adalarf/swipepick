@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Swipepick.Domain\Swipepick.Domain.csproj" />
+    <ProjectReference Include="..\Swipepick.Infrastructure.Abstraction\Swipepick.Infrastructure.Abstraction.csproj" />
   </ItemGroup>
 
 </Project>

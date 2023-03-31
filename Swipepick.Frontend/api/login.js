@@ -6,9 +6,9 @@ import {autoLogin} from "./autoLogin";
 export const login = (email, password, router) => {
   return async dispatch => {
     try {
-      const response = await axios.post(`https://localhost:7286/api/user/auth/login`, {
-        email,
-        password
+      const userLoginDto = { "email": email, "password": password }
+      const response = await axios.post(`https://localhost:7286/api/auth/login`, {
+        userLoginDto
       })
       console.log(response);
       dispatch(setUser(response.data.userEmail));

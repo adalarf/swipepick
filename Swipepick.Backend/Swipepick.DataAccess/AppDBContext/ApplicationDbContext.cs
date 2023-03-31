@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Swipepick.Domain;
-using System.Reflection;
+using Swipepick.Infrastructure.Abstraction.Interfaces;
 
 namespace Swipepick.DataAccess.AppDBContext;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : DbContext, IAppDbContext
 {
     private readonly DalSetting _setting;
 

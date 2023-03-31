@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Swipepick.DataAccess.AppDBContext;
 using Swipepick.Domain;
+using Swipepick.Infrastructure.Abstraction.Interfaces;
 
 namespace Swipepick.UseCases.Tests.CreateTest;
 
 public class CreateTestCommandHandler : IRequestHandler<CreateTestCommand>
 {
-    private readonly ApplicationDbContext dbContext;
+    private readonly IAppDbContext dbContext;
     private readonly IMapper mapper;
 
-    public CreateTestCommandHandler(ApplicationDbContext dbContext, IMapper mapper)
+    public CreateTestCommandHandler(IAppDbContext dbContext, IMapper mapper)
     {
         this.dbContext = dbContext;
         this.mapper = mapper;
@@ -25,6 +25,9 @@ public class CreateTestCommandHandler : IRequestHandler<CreateTestCommand>
             var test = mapper.Map<Test>(request.TestDto);
             test.UniqueCode = Guid.NewGuid().ToString().Split("-")[0];
             test.User = user;
+            test.UserId = user.Id;
+            dbContext.Tests.Add(test);
+            await dbContext.SaveChangesAsync(cancellationToken);
         }
     }
 }

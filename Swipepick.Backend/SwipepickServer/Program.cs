@@ -7,6 +7,7 @@ using System.Reflection;
 using Swipepick.UseCases;
 using Swipepick.UseCases.Tests.CreateTest;
 using Swipepick.DataAccess.AppDBContext;
+using Swipepick.Infrastructure.Abstraction.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 
 //конфигурация свагера
@@ -60,8 +61,7 @@ builder.Services.AddAutoMapper(cfg => cfg.AddMaps(Assembly.GetAssembly(typeof(Te
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetAssembly(typeof(CreateTestCommand))));
 var settings = new DalSetting(builder.Configuration);
 builder.Services.AddTransient(_ => settings);
-//builder.Services.AddScoped<IUserRepository, UserRepository>();
-//builder.Services.AddTransient<ITestRepository, TestRepository>();
+builder.Services.AddScoped<IAppDbContext, ApplicationDbContext>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(opt => opt.UseNpgsql(settings.ConnectionString));
 

@@ -7,7 +7,7 @@ using Swipepick.UseCases.Users.GetUser;
 namespace SwipepickServer.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/auth")]
     public class UserAuthController : Controller
     {
         private readonly IMediator mediator;
