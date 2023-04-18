@@ -7,6 +7,7 @@ import {useEffect} from "react";
 import {autoLogin} from "../api/autoLogin";
 import styles from "../styles/Profile.module.css";
 import user from "../public/user.webp";
+import search from "../public/search.png";
 import settings from "../public/settings.png";
 import delete_img from "../public/delete.png";
 import Image from "next/image";
@@ -29,6 +30,10 @@ const Profile = () => {
       <div className={styles.tests_and_polls}>
         <div className={styles.tests}>тесты</div>
         <div className={styles.polls}>опросы</div>
+      </div>
+
+      <div className={styles.search}>
+        <Image src = {search} className={styles.search_image}></Image>
       </div>
 
       <div className={styles.container}>
@@ -67,6 +72,12 @@ const Profile = () => {
             <Image src={delete_img} className={styles.delete}></Image>
           </div>
           <div className={styles.columns}></div>
+        </div>
+
+        <div className={styles.answer}>
+          <div className={styles.plus_box}>
+            <div>+</div>
+          </div>
         </div>
 
       </div>

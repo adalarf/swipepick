@@ -55,12 +55,33 @@
 .polls{
     margin-right: 7%;
 }
+
+.search{
+    position: absolute;
+    width: 31.5%;
+    height: 7%;
+    left: 27.8%;
+    top: 17.9%;
+
+    background: #DDE9EE;
+    border: 2px solid #42445A;
+    border-radius: 14px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.search_image{
+    width: 6.5%;
+    height: 60%;
+    margin-right: 3%;
+}
 .container{
     position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    left: 60%;
+    left: 65%;
     top: 18%;
     height: 38%;
     width:25%;
@@ -119,14 +140,15 @@
     justify-content: space-evenly;
     position: absolute;
     left: 12%;
-    top: 31%;
-    height: 38%;
+    top: 25%;
+    height: 70%;
     width:78%;
 }
 
 .answer{
+    box-sizing: border-box;
     width: 100%;
-    height: 35%;
+    height: 21%;
     background: #DDEAEE;
     border: 3px solid #42445A;
     border-radius: 14px;
@@ -142,6 +164,23 @@
     background: #DDEAEE;
     border: 6px solid #42445A;
     border-radius: 14px;
+}
+
+.plus_box{
+    box-sizing: border-box;
+    width: 10%;
+    height: 105%;
+    margin-left: -3px;
+    margin-top: -3px;
+    padding-bottom: 3px;
+
+    background: #DDEAEE;
+    border: 4px solid #42445A;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vh;
 }
 
 .answer_container{
